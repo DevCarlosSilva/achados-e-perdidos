@@ -19,3 +19,15 @@ body {
 .form-logo {
   max-width: 190px;
 }
+
+/* site */
+.navbar-background {
+  background-color: #e6eded;
+}
+.nav-item-hover {
+  border-radius: 8px;
+  transition: 1s backgound-color;
+}
+.nav-item-hover:hover {
+  background-color: #ffc107;
+}
