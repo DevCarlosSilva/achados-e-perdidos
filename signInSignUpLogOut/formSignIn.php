@@ -30,20 +30,20 @@
   }
 ?>
   <div class="w-100 m-auto form-container">
-  <form action="signInValidation.php" method="post">
+  <form action="signInValidation.php" method="post" class="needs-validation" novalidate>
     <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2">
     <span class="h3 fw-semi-bold">Login,</span>
     <span class="h5 fw-semi-bold text-warning"> olá denovo!</span>
     <div class="form-floating mt-3">
-      <input name="username" id="username" class="form-control mb-1" placeholder="Nome de usuário">
+      <input name="username" id="username" class="form-control mb-1" placeholder="Nome de usuário" required>
       <label for="username">Nome de usuário</label>
     </div>
     <div class="form-floating">
-      <input type="email" name="email" id="email" class="form-control mb-1" placeholder="seu-email@gmail.com">
+      <input type="email" name="email" id="email" class="form-control mb-1" placeholder="seu-email@gmail.com" required>
       <label for="email">E-mail</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="password" id="password" class="form-control" placeholder="Senha">
+      <input type="password" name="password" id="password" class="form-control" placeholder="Senha" required>
       <label for="password">Senha</label>
     </div>
     <input type="submit" name="submit" value="Submit" class="my-3 btn btn-warning w-100">
@@ -54,6 +54,22 @@
     <p class="text-secondary copyright text-center">Direitos Autorais © 2024 Carlos Silva. Todos os Direitos Reservados</p> 
   </form>
   </div>
+  <script defer>
+    // Capturar todos os form com class need-validaion e pra cada form ele adiciona um controlador de evento ao botão de submit checando os inputs e deixando ou não o form ser enviado
+    (() => {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
 <?php
 require '../footer.php';
 ?>
