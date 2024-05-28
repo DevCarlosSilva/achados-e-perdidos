@@ -8,24 +8,24 @@
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body class="d-flex align-items-center">
+<body class="d-flex align-items-center flex-column p-4">
   <?php
   // Se a inscrição for bem-sucedida, o usuário será direcionado para a página de login que conterá uma mensagem para garantir que a conta foi criada com sucesso
   if(isset($_GET['signUpSuccess'])){
     if($_GET['signUpSuccess'] === 'yes'){
-      echo 'Successfully signed up!';
+      echo '<div class="alert alert-success" role="alert">Successfully signed up! <a href="formSignIn.php" class="text-success">[X]</a></div>';
     }
   }
   // Se o login falhar o usuário será direcionado para a página de login que terá uma mensagem esclarecendo que as credenciais utilizadas são inválidas
   if(isset($_GET['signInError'])){
     if($_GET['signInError'] === 'yes'){
-      echo 'Invalid credentials.';
+      echo '<div class="alert alert-danger" role="alert">Invalid credentials. <a href="formSignIn.php" class="text-danger">[X]</a></div>';
     }
   }
   // Se o log out foi execultado com sucesso uma mensagem vai aparecer esclarecendo
   if(isset($_GET['logOut'])){
     if($_GET['logOut'] === 'success'){
-      echo 'Successfully logged out!';
+      echo '<div class="alert alert-success" role="alert">Successfully logged out! <a href="formSignIn.php" class="text-success">[X]</a></div>';
     }
   }
 ?>

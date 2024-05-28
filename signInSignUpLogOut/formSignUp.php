@@ -8,12 +8,12 @@
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body class="d-flex align-items-center">
+<body class="d-flex align-items-center flex-column p-4">
   <?php
   // Caso o usuário envie apenas espaço em um dos inputs, ele será enviado de volta ao formulário de cadastro com uma mensagem esclarecendo que as credenciais utilizadas são inválidas
   if(isset($_GET['signUpError'])){
     if($_GET['signUpError'] === 'yes'){
-      echo 'Invalid credentials.';
+      echo '<div class="alert alert-danger" role="alert">Invalid credentials. <a href="formSignUp.php" class="text-danger">[X]</a></div>';
     }
   }
   ?>
