@@ -12,12 +12,15 @@ body {
 .form-container {
   max-width: 450px;
   padding: 2rem;
-  border: #d9d9d9 solid 2px;
+  border: #c8c8c8 solid 3px;
   border-radius: 8px;
   background-color: #e6eded;
 }
 .form-logo {
   max-width: 190px;
+}
+.form-page-bg {
+  background: url(assets/bg.jpg) no-repeat center/cover;
 }
 
 /* site */
@@ -26,7 +29,7 @@ body {
 }
 .nav-item-hover {
   border-radius: 8px;
-  transition: 1s backgound-color;
+  transition: 1s background-color;
 }
 .nav-item-hover:hover {
   background-color: #ffc107;
