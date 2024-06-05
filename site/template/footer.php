@@ -1,5 +1,4 @@
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="style.css">
+  
   <!-- ionicons -->
   <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

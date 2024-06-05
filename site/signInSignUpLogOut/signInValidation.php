@@ -5,12 +5,12 @@ if (isset($_POST['email']) && !empty(trim($_POST['email'])) && isset($_POST['pas
   $email = $_POST['email'];
   $password = $_POST['password'];
   $sql = 'SELECT * FROM accounts WHERE email = :email AND password = :password';
-  $result = $conn->prepare($sql);
-  $result->bindValue(':email', $email);
-  $result->bindValue(':password', $password);
-  $result->execute();
-  if ($result->rowCount() > 0) {
-    $data = $result->fetch();
+  $stmt = $conn->prepare($sql);
+  $stmt->bindParam(':email', $email);
+  $stmt->bindParam(':password', $password);
+  $stmt->execute();
+  if ($stmt->rowCount() > 0) {
+    $data = $stmt->fetch();
     $_SESSION['loggedIn'] = 1;
     $_SESSION['username'] = $data['username'];
     header('Location: ../index.php');
