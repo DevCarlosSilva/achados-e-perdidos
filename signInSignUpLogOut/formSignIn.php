@@ -58,7 +58,7 @@ require '../header.php';
         <input type="password" name="password" id="password" class="form-control" placeholder="Insira sua senha" required>
         <label for="password">Insira sua senha</label>
       </div>
-      <input type="submit" name="submit" value="Entrar" class="my-3 btn btn-warning w-100">
+      <input type="submit" value="Entrar" class="my-3 btn btn-warning w-100">
       <div class="text-center">
         <span>Ainda não tem uma conta? • </span><a href="formSignUp.php" class="text-warning">Registre-se</a>
       </div>
