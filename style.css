@@ -24,13 +24,3 @@ body {
 }
 
 /* site */
-.navbar-background {
-  background-color: #e6eded;
-}
-.nav-item-hover {
-  border-radius: 8px;
-  transition: 1s background-color;
-}
-.nav-item-hover:hover {
-  background-color: #ffc107;
-}
