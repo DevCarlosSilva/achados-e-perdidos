@@ -24,3 +24,30 @@ body {
 }
 
 /* index/home-page */
+.modal,
+.modal-content {
+  width: 300px;
+}
+.list-group-item {
+  transition: background-color 0.2s;
+}
+.list-group-item:hover {
+  background-color: #ffc107;
+}
+.logo-bg-color {
+  background-color: #e3edec;
+}
+.modal-header,
+.modal-footer {
+  background-color: #e3edec;
+}
+.log-out-button {
+  color: #dc3545;
+}
+.log-out-button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+.modal-header {
+  max-height: 61.5px;
+}
