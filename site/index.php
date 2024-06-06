@@ -17,24 +17,23 @@ require 'template/header.php';
         </a>
       </div>
       <div class="page-identificator d-flex align-items-center">
-        <ion-icon name="home-outline" class="me-2 page-identificator-icon"></ion-icon>
+        <ion-icon name="home" class="me-2 page-identificator-icon"></ion-icon>
         <div class="h4 m-0">Página inicial</div>
       </div>
     </div>
   </nav>
 
   <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-    <div class="offcanvas-header d-flex align-items-center">
-      <img src="assets/noTitleLogo.png" width="35" height="35" alt="imagem da logo" class="me-2" draggable="false" />
+    <div class="offcanvas-header d-flex align-items-center justify-content-between">
       <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <ion-icon name="menu-outline" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
     </div>
     <div class="offcanvas-body">
       //! REQUIRE ISSUE
       <ul class="list-group list-group-flush">
-        <a class="list-group-item rounded" href="index.html">Página inicial</a>
-        <a class="list-group-item rounded" href="index.html">Itens perdidos</a>
-        <a class="list-group-item rounded" href="index.html">Itens devolvidos</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="index.php"><ion-icon name="home-outline" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="index.php"><ion-icon name="file-tray-full-outline" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="index.php"><ion-icon name="file-tray-outline" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
       </ul>
     </div>
     <div class="offcanvas-footer h-100 d-flex align-items-center justify-content-end px-3">
@@ -45,7 +44,7 @@ require 'template/header.php';
         <ul class="dropdown-menu">
           <li>
             //! REQUIRE ISSUE
-            <a class="btn d-flex align-items-center dropdown-item log-out-button" href="index.html">
+            <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
               <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Sair da conta
             </a>
           </li>
