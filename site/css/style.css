@@ -17,10 +17,10 @@ body {
   background-color: #e6eded;
 }
 .form-logo {
-  max-width: 190px;
+  max-width: 170px;
 }
 .form-page-bg {
-  background: url(assets/bg.jpg) no-repeat center/cover;
+  background: url(../assets/bg.jpg) no-repeat center/cover;
 }
 
-/* site */
+/* index/home-page */
