@@ -1,10 +1,3 @@
-<!-- home-page -->
-<?php
-session_start();
-if (!isset($_SESSION['loggedIn'])) {
-  header('Location: signInSignUpLogOut/formSignIn.php');
-}
-?>
 <!-- header -->
 <!doctype html>
 <html lang="en">
@@ -24,8 +17,8 @@ if (!isset($_SESSION['loggedIn'])) {
       <div class="navbar-brand">
         <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
         <a class="logo-navbar">
-          <img src="assets/noTitleLogo.png" width="35" height="35" alt="imagem da logo" class="me-2" draggable="false" />
-          <img src="assets/onlyTitleLogo.png" width="140" height="24" alt="nome da logo" draggable="false" />
+          <img src="../assets/noTitleLogo.png" width="35" height="35" alt="imagem da logo" class="me-2" draggable="false" />
+          <img src="../assets/onlyTitleLogo.png" width="140" height="24" alt="nome da logo" draggable="false" />
         </a>
       </div>
       <div class="dropstart">
@@ -35,7 +28,7 @@ if (!isset($_SESSION['loggedIn'])) {
         </button>
         <ul class="dropdown-menu">
           <li>
-            <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
+            <a class="btn d-flex align-items-center dropdown-item log-out-button" href="../signInSignUpLogOut/logOut.php">
               <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Sair da conta
             </a>
           </li>
@@ -50,11 +43,12 @@ if (!isset($_SESSION['loggedIn'])) {
       <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
     </div>
     <div class="offcanvas-body">
+      //! REQUIRE ISSUE
       <ul class="list-group list-group-flush">
-        <a class="list-group-item rounded d-flex align-items-center" href="index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="cruds/foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="cruds/returnedItems.php"><ion-icon name="file-tray-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="cruds/report.php"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="../index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="returnedItems.php"><ion-icon name="file-tray-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
+        <a class="list-group-item rounded d-flex align-items-center" href="report.php"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</a>
       </ul>
     </div>
     <div class="offcanvas-footer h-100 d-flex align-items-center justify-content-end px-3 text-secondary">
@@ -65,11 +59,3 @@ if (!isset($_SESSION['loggedIn'])) {
                                                                                                                                                                       }; ?>
     </div>
   </div>
-  <main class="h-100">
-    <h1 class="text-warning d-flex align-items-center"><ion-icon name="home" class="me-2 page-identificator-icon"></ion-icon>Página inicial</h1>
-    <h6 class="ms-5 text-dark">Ponto de partida</h6>
-  </main>
-  <link rel="stylesheet" href="cruds/css/style.css">
-  <?php
-  require 'cruds/template/footer.php';
-  ?>

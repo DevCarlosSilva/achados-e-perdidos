@@ -8,4 +8,66 @@ body {
   /* color: text-secondary; */
 }
 
+/* nav/side bar */
+.navbar,
+.offcanvas-header,
+.offcanvas-footer {
+  background-color: #e6eded;
+  max-height: 62px;
+}
+.offcanvas {
+  max-width: 300px;
+}
+.sidebar-toggle {
+  transition: background-color 0.2s;
+  height: 22px;
+  width: 22px;
+}
+.list-group-item {
+  transition: background-color 0.2s;
+  font-size: 17px;
+  font-weight: 500;
+}
+.logo-navbar {
+  text-decoration: none;
+}
+.account-settings-button:hover,
+.sidebar-toggle:hover,
+.list-group-item:hover {
+  background-color: #ffc107;
+}
+.account-settings-icon {
+  height: 25px;
+  width: 25px;
+}
+.account-settings-arrow-icon {
+  height: 15px;
+  width: 15px;
+}
+.log-out-button {
+  color: #dc3545;
+  transition: background-color color 0.2s;
+}
+.log-out-button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+.log-out-icon {
+  height: 25px;
+  width: 25px;
+}
+/* footer */
+footer {
+  max-height: 5%;
+  background-color: #e6eded;
+}
 /* cruds */
+.page-identificator-icon {
+  height: 37px;
+  width: 37px;
+}
+
+main {
+  max-height: 95%;
+  padding: 90px 200px 28px;
+}

@@ -9,10 +9,11 @@ if (isset($_POST['email']) && !empty(trim($_POST['email'])) && isset($_POST['pas
   $stmt->bindParam(':password', $password);
   $stmt->execute();
   if ($stmt->rowCount() > 0) {
-    $data = $stmt->fetch();
+    $accountInfo = $stmt->fetch(PDO::FETCH_ASSOC);
     session_start();
     $_SESSION['loggedIn'] = 1;
-    $_SESSION['username'] = $data['username'];
+    $_SESSION['username'] = $accountInfo['username'];
+    $_SESSION['role'] = $accountInfo['admin'];
     header('Location: ../index.php');
   } else {
     header('Location: formSignIn.php?signInErrorAccountNotFound=y');
