@@ -1,7 +1,7 @@
 <!-- footer -->
-<footer class="container-fluid h-100 d-flex justify-content-between align-items-center">
+<footer class="d-flex justify-content-between align-items-center container-fluid p-2">
   <p class="text-secondary copyright m-0">Direitos Autorais © 2024 Carlos Silva. Todos os Direitos Reservados</p>
-  <div><a href="index.php" class="text-warning">política de privacidade </a>•<a href="index.php" class="text-warning"> entre em contato</a></div>
+  <div class="ms-2"><a href="index.php" class="text-warning">política de privacidade </a>•<a href="index.php" class="text-warning"> entre em contato</a></div>
 </footer>
 <link rel="stylesheet" href="css/style.css">
 <!-- ionicons -->

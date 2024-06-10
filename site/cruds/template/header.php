@@ -12,15 +12,14 @@
 
 <body>
   <!-- nav/side bar -->
-  <nav class="navbar container-fluid logo-bg-color px-4 z-1 position-absolute">
-    <div class="container-fluid d-flex justify-content-between align-items-center p-0">
+  <nav class="custom-navbar container-fluid logo-bg-color px-4 mb-4 h-100 d-flex align-items-center">
+    <div class="container-fluid d-flex justify-content-between align-items-center p-0 ">
       <div class="navbar-brand">
         <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
-        <a class="logo-navbar">
-          <img src="../assets/noTitleLogo.png" width="35" height="35" alt="imagem da logo" class="me-2" draggable="false" />
-          <img src="../assets/onlyTitleLogo.png" width="140" height="24" alt="nome da logo" draggable="false" />
-        </a>
       </div>
+      <a href="../index.php" class="logo-navbar">
+        <img src="../assets/navbarLogo.png" alt="logo" draggable="false" class="img-fluid" />
+      </a>
       <div class="dropstart">
         <button class="btn account-settings-button d-flex align-items-center fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">
           <ion-icon name="chevron-back-sharp" class="account-settings-arrow-icon"></ion-icon>
@@ -43,7 +42,6 @@
       <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
     </div>
     <div class="offcanvas-body">
-      //! REQUIRE ISSUE
       <ul class="list-group list-group-flush">
         <a class="list-group-item rounded d-flex align-items-center" href="../index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
         <a class="list-group-item rounded d-flex align-items-center" href="foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>

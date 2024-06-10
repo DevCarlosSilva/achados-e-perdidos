@@ -19,15 +19,14 @@ if (!isset($_SESSION['loggedIn'])) {
 
 <body>
   <!-- nav/side bar -->
-  <nav class="navbar container-fluid logo-bg-color px-4 z-1 position-absolute">
-    <div class="container-fluid d-flex justify-content-between align-items-center p-0">
+  <nav class="custom-navbar container-fluid logo-bg-color px-4 mb-4 h-100 d-flex align-items-center">
+    <div class="container-fluid d-flex justify-content-between align-items-center p-0 ">
       <div class="navbar-brand">
         <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
-        <a class="logo-navbar">
-          <img src="assets/noTitleLogo.png" width="35" height="35" alt="imagem da logo" class="me-2" draggable="false" />
-          <img src="assets/onlyTitleLogo.png" width="140" height="24" alt="nome da logo" draggable="false" />
-        </a>
       </div>
+      <a href="index.php" class="logo-navbar">
+        <img src="assets/navbarLogo.png" alt="logo" draggable="false" class="img-fluid" />
+      </a>
       <div class="dropstart">
         <button class="btn account-settings-button d-flex align-items-center fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">
           <ion-icon name="chevron-back-sharp" class="account-settings-arrow-icon"></ion-icon>
@@ -65,9 +64,81 @@ if (!isset($_SESSION['loggedIn'])) {
                                                                                                                                                                       }; ?>
     </div>
   </div>
-  <main class="h-100">
-    <h1 class="text-warning d-flex align-items-center"><ion-icon name="home" class="me-2 page-identificator-icon"></ion-icon>Página inicial</h1>
-    <h6 class="ms-5 text-dark">Ponto de partida</h6>
+  <main class="container">
+    <div class="d-flex justify-content-between align-items-end container">
+      <h1 class="text-warning d-flex align-items-center"><ion-icon name="home" class="me-2 page-identificator-icon"></ion-icon>Página inicial</h1>
+    </div>
+    <div class="page-title-divider w-100 mb-3"></div>
+    <div class="container">
+      <div class="row gap-3">
+        <a href="cruds/foundItems.php" class="card page-card col-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray-full" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</h5>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <div>Clique aqui para ver os itens encontrados</div>
+            <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
+          </div>
+        </a>
+        <a href="cruds/returnedItems.php" class="card page-card col-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</h5>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <div>Clique aqui para ver os itens devolvidos</div>
+            <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
+          </div>
+        </a>
+        <a href="cruds/report.php" class="card page-card col-sm">
+          <div class="card-body">
+            <h5 class="card-title d-flex align-items-center"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</h5>
+          </div>
+          <div class="card-footer d-flex justify-content-between align-items-center">
+            <div>Clique aqui para ver os itens mais perdidos</div>
+            <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
+          </div>
+        </a>
+        <div class="col-12 card report-card my-5 mx-auto">
+          <div class="card-header d-flex justify-content-between align-items-center p-3">
+            <h5 class="card-title d-flex align-items-center mb-0"><ion-icon name="pricetags" class="me-2 sidebar-page-icon"></ion-icon>Categorias de itens mais perdidos</h5>
+            <a href="cruds/report.php" class="d-flex align-items-center p-1 card-arrow-icon"><ion-icon name="arrow-redo"></ion-icon></a>
+          </div>
+          <div class="table-card-body">
+            <?php
+            require 'database/dbConfig.php';
+            $sql = 'SELECT * FROM report';
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+            $report = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (count($report) > 0) {
+            ?>
+              <table class="table table-striped table-hover table-responsive table-bordered">
+                <thead>
+                  <tr>
+                    <th class="text-end w-50">Número de ocorrências</th>
+                    <th class="w-50">Categoria</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                  <?php
+                  foreach ($report as $category) {
+                    echo '<tr>';
+                    echo '<td class="text-end">' . $category['countIDcat'] . '</td>';
+                    echo '<td>' . $category['category'] . '</td>';
+                    echo '</tr>';
+                  }
+                  ?>
+                </tbody>
+              </table>
+            <?php
+            } else {
+              echo '<h2 class="p-3 text-center text-warning">Não há itens cadastrados no momento.</h2>';
+            }
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
   <link rel="stylesheet" href="cruds/css/style.css">
   <?php
