@@ -2,4 +2,4 @@
 session_start();
 session_unset();
 session_destroy();
-header('Location: formSignIn.php?logOut=y');
+header('Location: formSignIn.php?alert=logOut');

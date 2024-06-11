@@ -1,37 +1,31 @@
 <?php
 require 'template/formsHeader.php';
-?>
-<?php
-if (isset($_GET['signUpSuccess'])) {
-  if ($_GET['signUpSuccess'] === 'y') {
-    echo '<div class="alert alert-success d-flex align-items-center" role="alert">
+if (isset($_GET['alert'])) {
+  switch ($_GET['alert']) {
+    case "signUpSuccess":
+      echo '<div class="alert alert-success d-flex align-items-center" role="alert">
               <ion-icon name="checkmark-circle-outline" class="me-1"></ion-icon>
-              <div>Registro bem sucedido! Entre na sua conta <a href="formSignIn.php" class="text-success">[X]</a></div>
+              <div>Registro bem sucedido! Entre na sua conta<a href="formSignIn.php" class="text-success ms-1">[X]</a></div>
             </div>';
-  }
-}
-if (isset($_GET['signInErrorAccountNotFound'])) {
-  if ($_GET['signInErrorAccountNotFound'] === 'y') {
-    echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
+      break;
+    case "signInErrorAccountNotFound":
+      echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
               <ion-icon name="alert-circle-outline" class="me-1"></ion-icon>
-              <div>E-mail ou senha incorretos. Verifique suas informações e tente novamente <a href="formSignIn.php" class="text-danger">[X]</a></div>
+              <div>E-mail ou senha incorretos. Verifique suas informações e tente novamente<a href="formSignIn.php" class="text-danger ms-1">[X]</a></div>
             </div>';
-  }
-}
-if (isset($_GET['signInErrorInvalidCredentials'])) {
-  if ($_GET['signInErrorInvalidCredentials'] === 'y') {
-    echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
+      break;
+    case "signInErrorInvalidCredentials":
+      echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
               <ion-icon name="alert-circle-outline" class="me-1"></ion-icon>
-              <div>Por favor, insira um e-mail e senha válidos <a href="formSignIn.php" class="text-danger">[X]</a></div>
+              <div>Por favor, insira um e-mail e senha válidos<a href="formSignIn.php" class="text-danger ms-1">[X]</a></div>
             </div>';
-  }
-}
-if (isset($_GET['logOut'])) {
-  if ($_GET['logOut'] === 'y') {
-    echo '<div class="alert alert-success d-flex align-items-center" role="alert">
+      break;
+    case "logOut":
+      echo '<div class="alert alert-success d-flex align-items-center" role="alert">
               <ion-icon name="checkmark-circle-outline" class="me-1"></ion-icon>
-              <div>Você saiu da sua conta <a href="formSignIn.php" class="text-success">[X]</a></div>
+              <div>Você saiu da sua conta<a href="formSignIn.php" class="text-success ms-1">[X]</a></div>
             </div>';
+      break;
   }
 }
 ?>

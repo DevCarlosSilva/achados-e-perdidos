@@ -1,21 +1,19 @@
 <?php
 require 'template/formsHeader.php';
-?>
-<?php
-if (isset($_GET['signUpErrorInvalidCredentials'])) {
-  if ($_GET['signUpErrorInvalidCredentials'] === 'y') {
-    echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
+if (isset($_GET['alert'])) {
+  switch ($_GET['alert']) {
+    case "signUpErrorInvalidCredentials":
+      echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
               <ion-icon name="alert-circle-outline" class="me-1"></ion-icon>
-              <div>Por favor, insira um nome de usuário, e-mail e senha válidos <a href="formSignUp.php" class="text-danger">[X]</a></div>
+              <div>Por favor, insira um nome de usuário, e-mail e senha válidos<a href="formSignUp.php" class="text-danger ms-1">[X]</a></div>
             </div>';
-  }
-}
-if (isset($_GET['emailAlreadyInUse'])) {
-  if ($_GET['emailAlreadyInUse'] === 'y') {
-    echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
+      break;
+    case "emailAlreadyInUse":
+      echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
               <ion-icon name="alert-circle-outline" class="me-1"></ion-icon>
-              <div>E-mail já está sendo usado por outra conta <a href="formSignUp.php" class="text-danger">[X]</a></div>
+              <div>E-mail já está sendo usado por outra conta<a href="formSignUp.php" class="text-danger ms-1">[X]</a></div>
             </div>';
+      break;
   }
 }
 ?>

@@ -16,8 +16,8 @@ if (isset($_POST['email']) && !empty(trim($_POST['email'])) && isset($_POST['pas
     $_SESSION['role'] = $accountInfo['admin'];
     header('Location: ../index.php');
   } else {
-    header('Location: formSignIn.php?signInErrorAccountNotFound=y');
+    header('Location: formSignIn.php?alert=signInErrorAccountNotFound');
   }
 } else {
-  header('Location: formSignIn.php?signInErrorInvalidCredentials=y');
+  header('Location: formSignIn.php?alert=signInErrorInvalidCredentials');
 }
