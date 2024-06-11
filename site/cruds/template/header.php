@@ -12,7 +12,7 @@
 
 <body>
   <!-- nav/side bar -->
-  <nav class="custom-navbar container-fluid logo-bg-color px-4 mb-4 h-100 d-flex align-items-center">
+  <nav class="custom-navbar logo-gray-bg container-fluid logo-bg-color px-4 mb-4 h-100 d-flex align-items-center">
     <div class="container-fluid d-flex justify-content-between align-items-center p-0 ">
       <div class="navbar-brand">
         <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
@@ -36,24 +36,24 @@
     </div>
   </nav>
 
-  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas offcanvas-start logo-gray-bg" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header d-flex align-items-center justify-content-between">
       <h4 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h4>
       <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
     </div>
     <div class="offcanvas-body">
       <ul class="list-group list-group-flush">
-        <a class="list-group-item rounded d-flex align-items-center" href="../index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="returnedItems.php"><ion-icon name="file-tray-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="report.php"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="../index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="returnedItems.php"><ion-icon name="file-tray-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="report.php"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</a>
       </ul>
     </div>
     <div class="offcanvas-footer h-100 d-flex align-items-center justify-content-end px-3 text-secondary">
-      <ion-icon name="person-circle-sharp" class="me-1 account-settings-icon"></ion-icon><span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php if ($_SESSION['role'] == 0) {
-                                                                                                                                                                        echo '<span>usuário</span>';
-                                                                                                                                                                      } else {
-                                                                                                                                                                        echo '<span class="text-warning">admin</span>';
-                                                                                                                                                                      }; ?>
+      <span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php if ($_SESSION['role'] == 0) {
+                                                                                    echo '<span class="d-flex">usuário <ion-icon name="person-circle-sharp" class="account-settings-icon"></ion-icon></span>';
+                                                                                  } else {
+                                                                                    echo '<span class="text-warning d-flex">admin <ion-icon name="construct-sharp" class="account-settings-icon"></ion-icon></span>';
+                                                                                  }; ?>
     </div>
   </div>

@@ -8,6 +8,10 @@ body {
   /* color: text-secondary; */
 }
 
+.logo-gray-bg {
+  background-color: #e6eded;
+}
+
 /* nav/side bar */
 .custom-navbar,
 .offcanvas-header,
@@ -21,11 +25,7 @@ body {
   border-top: #c4c4c4 solid 1px;
 }
 .offcanvas {
-  background-color: #e6eded;
   border: #c4c4c4 1px solid;
-}
-.custom-navbar {
-  background-color: #e6eded;
 }
 .offcanvas {
   max-width: 300px;
@@ -39,7 +39,6 @@ body {
   transition: background-color 0.2s;
   font-size: 17px;
   font-weight: 500;
-  background-color: #e6eded;
 }
 .logo-navbar {
   text-decoration: none;
@@ -69,10 +68,6 @@ body {
   height: 25px;
   width: 25px;
 }
-/* footer */
-footer {
-  background-color: #e6eded;
-}
 /* cruds */
 .page-identificator-icon {
   height: 37px;
@@ -83,36 +78,27 @@ footer {
   background-color: #d9d9d9;
 }
 main {
-  min-height: 100vh;
+  min-height: 90vh;
 }
-.return-to-home {
+.return-to-home,
+.card-table-arrow-icon {
   text-decoration: none;
-  color: #1a1d20;
+  color: #595c5f;
   transition: color 0.1s;
 }
-.return-to-home:hover {
+.return-to-home:hover,
+.card-table-arrow-icon:hover {
   text-decoration: none;
-  color: #ffc107;
+  color: black;
 }
 .page-card {
   text-decoration: none;
-  background-color: #e6eded;
   transition: background-color 0.2s, margin 0.2s;
 }
 .page-card:hover {
   background-color: #ffc107;
   margin: 5px solid black;
 }
-.report-card {
-  background-color: #e6eded;
-}
-.card-arrow-icon {
-  color: black;
-  transition: color 0.1s;
-}
-.card-arrow-icon:hover {
-  color: #ffc107;
-}
-.table-card-body {
-  /* background-color: white; */
+.btn-item-register {
+  border-radius: ;
 }

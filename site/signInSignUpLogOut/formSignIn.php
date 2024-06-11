@@ -72,7 +72,6 @@ if (isset($_GET['logOut'])) {
     })
   })()
 </script>
-<link rel="stylesheet" href="css/style.css">
 <?php
 require 'template/formsFooter.php';
 ?>

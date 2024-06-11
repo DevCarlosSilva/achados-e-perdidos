@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedIn'])) {
 
 <body>
   <!-- nav/side bar -->
-  <nav class="custom-navbar container-fluid logo-bg-color px-4 mb-4 h-100 d-flex align-items-center">
+  <nav class="custom-navbar logo-gray-bg container-fluid logo-bg-color px-4 mb-4 h-100 d-flex align-items-center">
     <div class="container-fluid d-flex justify-content-between align-items-center p-0 ">
       <div class="navbar-brand">
         <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
@@ -43,25 +43,25 @@ if (!isset($_SESSION['loggedIn'])) {
     </div>
   </nav>
 
-  <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas offcanvas-start logo-gray-bg" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header d-flex align-items-center justify-content-between">
       <h4 class="offcanvas-title" id="offcanvasScrollingLabel">Menu</h4>
       <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
     </div>
     <div class="offcanvas-body">
       <ul class="list-group list-group-flush">
-        <a class="list-group-item rounded d-flex align-items-center" href="index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="cruds/foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="cruds/returnedItems.php"><ion-icon name="file-tray-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
-        <a class="list-group-item rounded d-flex align-items-center" href="cruds/report.php"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="index.php"><ion-icon name="home-sharp" class="me-2 sidebar-page-icon"></ion-icon>Página inicial</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="cruds/foundItems.php"><ion-icon name="file-tray-full-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="cruds/returnedItems.php"><ion-icon name="file-tray-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</a>
+        <a class="list-group-item rounded d-flex align-items-center logo-gray-bg" href="cruds/report.php"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</a>
       </ul>
     </div>
     <div class="offcanvas-footer h-100 d-flex align-items-center justify-content-end px-3 text-secondary">
-      <ion-icon name="person-circle-sharp" class="me-1 account-settings-icon"></ion-icon><span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php if ($_SESSION['role'] == 0) {
-                                                                                                                                                                        echo '<span>usuário</span>';
-                                                                                                                                                                      } else {
-                                                                                                                                                                        echo '<span class="text-warning">admin</span>';
-                                                                                                                                                                      }; ?>
+      <span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php if ($_SESSION['role'] == 0) {
+                                                                                    echo '<span class="d-flex">usuário <ion-icon name="person-circle-sharp" class="account-settings-icon"></ion-icon></span>';
+                                                                                  } else {
+                                                                                    echo '<span class="text-warning d-flex">admin <ion-icon name="construct-sharp" class="account-settings-icon"></ion-icon></span>';
+                                                                                  }; ?>
     </div>
   </div>
   <main class="container">
@@ -71,39 +71,39 @@ if (!isset($_SESSION['loggedIn'])) {
     <div class="page-title-divider w-100 mb-3"></div>
     <div class="container">
       <div class="row gap-3">
-        <a href="cruds/foundItems.php" class="card page-card col-sm">
+        <a href="cruds/foundItems.php" class="card page-card col-sm logo-gray-bg">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray-full" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</h5>
           </div>
-          <div class="card-footer d-flex justify-content-between align-items-center">
+          <div class="card-footer text-secondary d-flex justify-content-between align-items-center text-secondary">
             <div>Clique aqui para ver os itens encontrados</div>
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
         </a>
-        <a href="cruds/returnedItems.php" class="card page-card col-sm">
+        <a href="cruds/returnedItems.php" class="card page-card logo-gray-bg col-sm">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</h5>
           </div>
-          <div class="card-footer d-flex justify-content-between align-items-center">
+          <div class="card-footer text-secondary d-flex justify-content-between align-items-center">
             <div>Clique aqui para ver os itens devolvidos</div>
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
         </a>
-        <a href="cruds/report.php" class="card page-card col-sm">
+        <a href="cruds/report.php" class="card page-card logo-gray-bg col-sm">
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</h5>
           </div>
-          <div class="card-footer d-flex justify-content-between align-items-center">
+          <div class="card-footer text-secondary d-flex justify-content-between align-items-center">
             <div>Clique aqui para ver os itens mais perdidos</div>
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
         </a>
-        <div class="col-12 card report-card my-5 mx-auto">
+        <div class="col-12 card logo-gray-bg my-3">
           <div class="card-header d-flex justify-content-between align-items-center p-3">
             <h5 class="card-title d-flex align-items-center mb-0"><ion-icon name="pricetags" class="me-2 sidebar-page-icon"></ion-icon>Categorias de itens mais perdidos</h5>
-            <a href="cruds/report.php" class="d-flex align-items-center p-1 card-arrow-icon"><ion-icon name="arrow-redo"></ion-icon></a>
+            <a href="cruds/report.php" class="d-flex align-items-center p-1 card-table-arrow-icon"><ion-icon name="arrow-redo"></ion-icon></a>
           </div>
-          <div class="table-card-body">
+          <div class="card-body">
             <?php
             require 'database/dbConfig.php';
             $sql = 'SELECT * FROM report';

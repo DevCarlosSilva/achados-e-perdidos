@@ -60,7 +60,6 @@ if (isset($_GET['emailAlreadyInUse'])) {
     })
   })()
 </script>
-<link rel="stylesheet" href="css/style.css">
 <?php
 require 'template/formsFooter.php';
 ?>
