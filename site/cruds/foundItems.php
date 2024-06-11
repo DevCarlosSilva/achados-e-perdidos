@@ -13,7 +13,7 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 mb-3"></div>
   <div class="container">
-    <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados ao sistema de achados e perdidos.</span>
+    <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
     <?php
     require '../database/dbConfig.php';
     $sql = 'SELECT * FROM found_items_view';
@@ -52,7 +52,7 @@ require 'template/header.php';
       </table>
     <?php
     } else {
-      echo '<h2 class="p-3 text-center text-warning">Não há itens encontrados cadastrados no momento.</h2>';
+      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="m-0">Não há itens encontrados cadastrados no momento.</h4></div>';
     }
     ?>
   </div>

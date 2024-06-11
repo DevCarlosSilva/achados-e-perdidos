@@ -13,7 +13,44 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 mb-3"></div>
   <div class="container">
-
+    <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram devolvidos aos seus devidos proprietários(as).</span>
+    <?php
+    require '../database/dbConfig.php';
+    $sql = 'SELECT * FROM returned_items_view';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $returned_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($returned_items_view) > 0) {
+    ?>
+      <table class="table table-striped table-hover table-responsive table-bordered my-3">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Data achado</th>
+            <th>Local achado</th>
+            <th>Categoria</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <?php
+          foreach ($returned_items_view as $item) {
+            echo '<tr>';
+            echo '<td>' . $item['name'] . '</td>';
+            echo '<td>' . $item['description'] . '</td>';
+            echo '<td>' . $item['receiver_name'] . '</td>';
+            echo '<td>' . $item['date_of_return'] . '</td>';
+            echo '<td>' . $item['category'] . '</td>';
+            echo '</tr>';
+          }
+          ?>
+        </tbody>
+      </table>
+    <?php
+    } else {
+      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="m-0">Não há itens devolvidos cadastrados no momento.</h4></div>';
+    }
+    ?>
   </div>
 </main>
 <?php

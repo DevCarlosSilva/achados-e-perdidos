@@ -13,7 +13,38 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 mb-3"></div>
   <div class="container">
-
+    <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados ao sistema de achados e perdidos.</span>
+    <?php
+    require '../database/dbConfig.php';
+    $sql = 'SELECT * FROM report';
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $report = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($report) > 0) {
+    ?>
+      <table class="table table-striped table-hover table-responsive table-bordered my-3">
+        <thead>
+          <tr>
+            <th class="text-end w-50 h-100">Número de ocorrências</th>
+            <th class="w-100 d-flex align-items-center h-100">Categoria</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <?php
+          foreach ($report as $category) {
+            echo '<tr>';
+            echo '<td class="text-end">' . $category['countIDcat'] . '</td>';
+            echo '<td>' . $category['category'] . '</td>';
+            echo '</tr>';
+          }
+          ?>
+        </tbody>
+      </table>
+    <?php
+    } else {
+      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="m-0">Não há itens cadastrados no momento.</h4></div>';
+    }
+    ?>
   </div>
 </main>
 <?php
