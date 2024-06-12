@@ -22,3 +22,7 @@ body {
 .form-page-bg {
   background: url(../../assets/bg.jpg) no-repeat center/cover;
 }
+.alert-icons {
+  height: 20px;
+  width: 20px;
+}

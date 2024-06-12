@@ -3,26 +3,26 @@ require 'template/formsHeader.php';
 if (isset($_GET['alert'])) {
   switch ($_GET['alert']) {
     case "signUpSuccess":
-      echo '<div class="alert alert-success d-flex align-items-center" role="alert">
-              <ion-icon name="checkmark-circle-outline" class="me-1"></ion-icon>
+      echo '<div class="alert alert-success d-flex align-items-center fw-semibold" role="alert">
+              <ion-icon name="checkmark-circle-outline" class="me-1 alert-icons"></ion-icon>
               <div>Registro bem sucedido! Entre na sua conta<a href="formSignIn.php" class="text-success ms-1">[X]</a></div>
             </div>';
       break;
     case "signInErrorAccountNotFound":
-      echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
-              <ion-icon name="alert-circle-outline" class="me-1"></ion-icon>
+      echo '<div class="alert alert-danger d-flex align-items-center fw-semibold" role="alert">
+              <ion-icon name="alert-circle-outline" class="me-1 alert-icons"></ion-icon>
               <div>E-mail ou senha incorretos. Verifique suas informações e tente novamente<a href="formSignIn.php" class="text-danger ms-1">[X]</a></div>
             </div>';
       break;
     case "signInErrorInvalidCredentials":
-      echo '<div class="alert alert-danger d-flex align-items-center" role="alert">
-              <ion-icon name="alert-circle-outline" class="me-1"></ion-icon>
+      echo '<div class="alert alert-danger d-flex align-items-center fw-semibold" role="alert">
+              <ion-icon name="alert-circle-outline" class="me-1 alert-icons"></ion-icon>
               <div>Por favor, insira um e-mail e senha válidos<a href="formSignIn.php" class="text-danger ms-1">[X]</a></div>
             </div>';
       break;
     case "logOut":
-      echo '<div class="alert alert-success d-flex align-items-center" role="alert">
-              <ion-icon name="checkmark-circle-outline" class="me-1"></ion-icon>
+      echo '<div class="alert alert-success d-flex align-items-center fw-semibold" role="alert">
+              <ion-icon name="checkmark-circle-outline" class="me-1 alert-icons"></ion-icon>
               <div>Você saiu da sua conta<a href="formSignIn.php" class="text-success ms-1">[X]</a></div>
             </div>';
       break;

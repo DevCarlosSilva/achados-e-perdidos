@@ -99,9 +99,9 @@ main {
   background-color: #ffc107;
   margin: 5px solid black;
 }
-.btn-item-register {
-  border-radius: ;
-}
 .no-items-alert {
   border: 2px solid #d9d9d9;
 }
+/* table {
+  max-height: 50vh;
+} */

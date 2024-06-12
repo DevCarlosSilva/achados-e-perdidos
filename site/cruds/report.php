@@ -13,7 +13,7 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 mb-3"></div>
   <div class="container">
-    <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados ao sistema de achados e perdidos.</span>
+    <span class="text-secondary">Nesta página, você encontrará uma lista das categorias de itens mais perdidas.</span>
     <?php
     require '../database/dbConfig.php';
     $sql = 'SELECT * FROM report';
@@ -25,16 +25,16 @@ require 'template/header.php';
       <table class="table table-striped table-hover table-responsive table-bordered my-3">
         <thead>
           <tr>
-            <th class="text-end w-50 h-100">Número de ocorrências</th>
-            <th class="w-100 d-flex align-items-center h-100">Categoria</th>
+            <th class="text-center w-50 align-middle">Categoria</th>
+            <th class="text-center w-50 align-middle">Número de ocorrências</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
           <?php
           foreach ($report as $category) {
             echo '<tr>';
-            echo '<td class="text-end">' . $category['countIDcat'] . '</td>';
-            echo '<td>' . $category['category'] . '</td>';
+            echo '<td class="text-center">' . $category['category'] . '</td>';
+            echo '<td class="text-center">' . $category['countIDcat'] . '</td>';
             echo '</tr>';
           }
           ?>

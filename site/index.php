@@ -115,8 +115,8 @@ if (!isset($_SESSION['loggedIn'])) {
               <table class="table table-striped table-hover table-responsive table-bordered">
                 <thead>
                   <tr>
-                    <th class="text-end w-50 h-100">Número de ocorrências</th>
-                    <th class="w-100 d-flex align-items-center h-100">Categoria</th>
+                    <th class="text-center w-50">Número de ocorrências</th>
+                    <th class="text-center w-50 align-middle">Categoria</th>
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">

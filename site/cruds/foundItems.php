@@ -29,11 +29,11 @@ require 'template/header.php';
             <!-- btn register - style.css - border radius -->
           </tr>
           <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Data achado</th>
-            <th>Local achado</th>
-            <th>Categoria</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center">Descrição</th>
+            <th class="text-center">Data achado</th>
+            <th class="text-center">Local achado</th>
+            <th class="text-center">Categoria</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
