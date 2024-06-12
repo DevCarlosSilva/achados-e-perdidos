@@ -13,7 +13,7 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 mb-2"></div>
   <div class="container">
-    <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
+    <span class="text-secondary mb-4 d-block">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
     <?php
     require '../database/dbConfig.php';
     $sql = 'SELECT * FROM found_items_view';
@@ -21,11 +21,12 @@ require 'template/header.php';
     $stmt->execute();
     $found_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($found_items_view) > 0) {
+      if ($_SESSION['role'] == 1) {
+        echo '<button class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Cadastrar</button>';
+      }
     ?>
-      <div class="table-responsive mt-4 mb-3">
+      <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered">
-          <button class="btn btn-success btn-item-register">Cadastro</button>
-          <!-- btn register - style.css - border radius -->
           <thead>
             <tr>
               <th class="text-center">Nome</th>
@@ -33,17 +34,36 @@ require 'template/header.php';
               <th class="text-center">Data achado</th>
               <th class="text-center">Local achado</th>
               <th class="text-center">Categoria</th>
+              <?php
+              if ($_SESSION['role'] == 1) {
+                echo '<th class="text-center">Ações</th>';
+              }
+              ?>
             </tr>
           </thead>
           <tbody class="table-group-divider">
             <?php
             foreach ($found_items_view as $item) {
               echo '<tr>';
-              echo '<td>' . $item['name'] . '</td>';
-              echo '<td>' . $item['description'] . '</td>';
-              echo '<td>' . $item['date_of_find'] . '</td>';
-              echo '<td>' . $item['place_of_find'] . '</td>';
-              echo '<td>' . $item['category'] . '</td>';
+              echo '<td class="align-middle">' . $item['name'] . '</td>';
+              echo '<td class="align-middle">' . $item['description'] . '</td>';
+              echo '<td class="align-middle">' . $item['date_of_find'] . '</td>';
+              echo '<td class="align-middle">' . $item['place_of_find'] . '</td>';
+              echo '<td class="align-middle">' . $item['category'] . '</td>';
+              if ($_SESSION['role'] == 1) {
+                echo '<td class="text-center align-middle">';
+            ?>
+                <div class="dropdown-center">
+                  <ion-icon name="ellipsis-horizontal" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Action two</a></li>
+                    <li><a class="dropdown-item" href="#">Action three</a></li>
+                  </ul>
+                </div>
+            <?php
+                echo '</td>';
+              }
               echo '</tr>';
             }
             ?>

@@ -121,3 +121,20 @@ main {
   width: 30px;
   height: 30px;
 }
+.add-item-button {
+  background-color: #f2f2f2;
+  color: #198754;
+  padding: 10px 45px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px 10px 0 0;
+  transition: all 0.2s;
+}
+.add-item-button:hover {
+  background-color: #198754;
+  color: #f2f2f2;
+  border: 1px solid #157046;
+}
+.add-item-icon {
+  width: 23px;
+  height: 23px;
+}
