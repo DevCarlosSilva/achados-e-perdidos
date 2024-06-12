@@ -8,7 +8,7 @@ require 'template/header.php';
 ?>
 <main class="container">
   <div class="d-flex justify-content-between align-items-end container">
-    <h1 class="text-warning d-flex align-items-center"><ion-icon name="file-tray" class="me-2 page-identificator-icon"></ion-icon>Itens devolvidos</h1>
+    <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont"><ion-icon name="file-tray" class="me-2 page-identificator-icon"></ion-icon>ITENS DEVOLVIDOS</h1>
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
   <div class="page-title-divider w-100 mb-3"></div>
@@ -48,7 +48,7 @@ require 'template/header.php';
       </table>
     <?php
     } else {
-      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="m-0">Não há itens devolvidos cadastrados no momento.</h4></div>';
+      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="">Não há itens devolvidos cadastrados no momento.<ion-icon name="sad-outline" class="no-items-icon ms-2"></ion-icon></h4></div>';
     }
     ?>
   </div>

@@ -1,3 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.IBMPlexMonoFont {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
 html,
 body {
   height: 100%;
@@ -70,8 +79,8 @@ body {
 }
 /* cruds */
 .page-identificator-icon {
-  height: 37px;
-  width: 37px;
+  height: 42px;
+  width: 42px;
 }
 .page-title-divider {
   height: 1px;
@@ -104,4 +113,11 @@ main {
 }
 .table-responsive {
   max-height: 70vh;
+}
+.table-responsive::-webkit-scrollbar {
+  width: 0;
+}
+.no-items-icon {
+  width: 30px;
+  height: 30px;
 }

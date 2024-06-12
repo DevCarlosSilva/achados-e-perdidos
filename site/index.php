@@ -13,6 +13,10 @@ if (!isset($_SESSION['loggedIn'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sistema de Achados & Perdidos</title>
+  <!-- font IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
@@ -65,8 +69,8 @@ if (!isset($_SESSION['loggedIn'])) {
     </div>
   </div>
   <main class="container">
-    <div class="d-flex justify-content-between align-items-end container">
-      <h1 class="text-warning d-flex align-items-center"><ion-icon name="home" class="me-2 page-identificator-icon"></ion-icon>Página inicial</h1>
+    <div class="container">
+      <h1 class="text-warning d-flex IBMPlexMonoFont"><ion-icon name="home" class="me-2 page-identificator-icon"></ion-icon>PÁGINA INICIAL</h1>
     </div>
     <div class="page-title-divider w-100 mb-3"></div>
     <div class="container">
@@ -99,7 +103,7 @@ if (!isset($_SESSION['loggedIn'])) {
           </div>
         </a>
         <div class="col-12 card logo-gray-bg my-3">
-          <div class="card-header d-flex justify-content-between align-items-center p-3">
+          <div class="card-header d-flex justify-content-between align-items-center p-3 logo-gray-bg">
             <h5 class="card-title d-flex align-items-center mb-0"><ion-icon name="pricetags" class="me-2 sidebar-page-icon"></ion-icon>Categorias de itens mais perdidos</h5>
             <a href="cruds/report.php" class="d-flex align-items-center p-1 card-table-arrow-icon"><ion-icon name="arrow-redo"></ion-icon></a>
           </div>
@@ -132,7 +136,7 @@ if (!isset($_SESSION['loggedIn'])) {
               </table>
             <?php
             } else {
-              echo '<h2 class="p-3 text-center text-warning">Não há itens cadastrados no momento.</h2>';
+              echo '<h4 class=" p-3 d-flex align-items-center justify-content-center">Não há itens cadastrados no momento.<ion-icon name="sad-outline" class="no-items-icon ms-2"></ion-icon></h4>';
             }
             ?>
           </div>

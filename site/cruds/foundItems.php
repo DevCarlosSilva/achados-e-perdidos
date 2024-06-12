@@ -8,10 +8,10 @@ require 'template/header.php';
 ?>
 <main class="container">
   <div class="d-flex justify-content-between align-items-end container">
-    <h1 class="text-warning d-flex align-items-center"><ion-icon name="file-tray-full" class="me-2 page-identificator-icon"></ion-icon>Itens encontrados</h1>
+    <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont"><ion-icon name="file-tray-full" class="me-2 page-identificator-icon"></ion-icon>ITENS ENCONTRADOS</h1>
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
-  <div class="page-title-divider w-100 mb-3"></div>
+  <div class="page-title-divider w-100 mb-2"></div>
   <div class="container">
     <span class="text-secondary">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
     <?php
@@ -22,9 +22,9 @@ require 'template/header.php';
     $found_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($found_items_view) > 0) {
     ?>
-      <div class="table-responsive">
-        <table class="table table-striped table-hover table-bordered mb-3">
-          <button class="btn btn-success mt-3 btn-item-register">Cadastro</button>
+      <div class="table-responsive mt-4 mb-3">
+        <table class="table table-striped table-hover table-bordered">
+          <button class="btn btn-success btn-item-register">Cadastro</button>
           <!-- btn register - style.css - border radius -->
           <thead>
             <tr>
@@ -52,7 +52,7 @@ require 'template/header.php';
       </div>
     <?php
     } else {
-      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="m-0">Não há itens encontrados cadastrados no momento.</h4></div>';
+      echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="">Não há itens encontrados cadastrados no momento.<ion-icon name="sad-outline" class="no-items-icon ms-2"></ion-icon></h4></div>';
     }
     ?>
   </div>

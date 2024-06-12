@@ -11,7 +11,6 @@ bootstrap dark - `#212529`
 
 1. Terminar cruds (seguir Figma)
    Visão de usuário dos cruds -> admin
-2. Lógica switch alert
 
 . Mudar senha e username, deletar conta
 . Passar itens de devolvidos para encontrados
