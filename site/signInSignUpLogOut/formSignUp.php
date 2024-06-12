@@ -4,14 +4,16 @@ if (isset($_GET['alert'])) {
   switch ($_GET['alert']) {
     case "signUpErrorInvalidCredentials":
       echo '<div class="alert alert-danger d-flex align-items-center fw-semibold" role="alert">
-              <ion-icon name="alert-circle-outline" class="me-1 alert-icons"></ion-icon>
-              <div>Por favor, insira um nome de usuário, e-mail e senha válidos<a href="formSignUp.php" class="text-danger ms-1">[X]</a></div>
+              <ion-icon name="warning" class="alert-icons"></ion-icon>
+              <div class="mx-2">Por favor, insira um nome de usuário, e-mail e senha válidos</div>
+              <a href="formSignUp.php" class="btn-close"></a>
             </div>';
       break;
     case "emailAlreadyInUse":
       echo '<div class="alert alert-danger d-flex align-items-center fw-semibold" role="alert">
-              <ion-icon name="alert-circle-outline" class="me-1 alert-icons"></ion-icon>
-              <div>E-mail já está sendo usado por outra conta<a href="formSignUp.php" class="text-danger ms-1">[X]</a></div>
+              <ion-icon name="warning" class="alert-icons"></ion-icon>
+              <div class="mx-2">E-mail já está sendo usado por outra conta</div>
+              <a href="formSignUp.php" class="btn-close"></a>
             </div>';
       break;
   }
