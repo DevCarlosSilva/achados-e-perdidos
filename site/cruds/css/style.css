@@ -138,3 +138,6 @@ main {
   width: 23px;
   height: 23px;
 }
+tr:hover {
+  background-color: black;
+}

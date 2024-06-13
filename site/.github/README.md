@@ -11,6 +11,8 @@ bootstrap dark - `#212529`
 
 1. Terminar cruds (seguir Figma)
    Visão de usuário dos cruds -> admin
+2. (Condition) ? (Statement1) : (Statement2);
+3. if (isset(..., ...)) {}
 
 . Mudar senha e username, deletar conta
 . Passar itens de devolvidos para encontrados

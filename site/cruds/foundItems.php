@@ -28,15 +28,15 @@ require 'template/header.php';
       <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered">
           <thead>
-            <tr>
-              <th class="text-center">Nome</th>
-              <th class="text-center">Descrição</th>
-              <th class="text-center">Data achado</th>
-              <th class="text-center">Local achado</th>
-              <th class="text-center">Categoria</th>
+            <tr class="text-center align-middle">
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Data achado</th>
+              <th>Local achado</th>
+              <th>Categoria</th>
               <?php
               if ($_SESSION['role'] == 1) {
-                echo '<th class="text-center">Ações</th>';
+                echo '<th>Ações</th>';
               }
               ?>
             </tr>
@@ -44,19 +44,23 @@ require 'template/header.php';
           <tbody class="table-group-divider">
             <?php
             foreach ($found_items_view as $item) {
-              echo '<tr>';
-              echo '<td class="align-middle">' . $item['name'] . '</td>';
-              echo '<td class="align-middle">' . $item['description'] . '</td>';
-              echo '<td class="align-middle">' . $item['date_of_find'] . '</td>';
-              echo '<td class="align-middle">' . $item['place_of_find'] . '</td>';
-              echo '<td class="align-middle">' . $item['category'] . '</td>';
+              echo '<tr class="text-center align-middle">';
+              echo '<td>' . $item['name'] . '</td>';
+              echo '<td class="text-start">' . $item['description'] . '</td>';
+              echo '<td>' . $item['date_of_find'] . '</td>';
+              echo '<td>' . $item['place_of_find'] . '</td>';
+              echo '<td>' . $item['category'] . '</td>';
               if ($_SESSION['role'] == 1) {
-                echo '<td class="text-center align-middle">';
+                echo '<td>';
             ?>
                 <div class="dropdown-center">
-                  <ion-icon name="ellipsis-horizontal" class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                  <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li>
+                      <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
+                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Sair da conta
+                      </a>
+                    </li>
                     <li><a class="dropdown-item" href="#">Action two</a></li>
                     <li><a class="dropdown-item" href="#">Action three</a></li>
                   </ul>
