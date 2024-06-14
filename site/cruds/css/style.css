@@ -140,4 +140,8 @@ main {
 }
 tr:hover {
   background-color: black;
+  background-color: rgba(255, 255, 255, 0);
+}
+.card-footer-background {
+  background-color: rgba(255, 255, 255, 0);
 }

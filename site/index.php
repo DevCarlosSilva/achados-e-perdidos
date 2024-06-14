@@ -79,7 +79,7 @@ if (!isset($_SESSION['loggedIn'])) {
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray-full" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</h5>
           </div>
-          <div class="card-footer text-secondary d-flex justify-content-between align-items-center text-secondary">
+          <div class="card-footer card-footer-background text-secondary d-flex justify-content-between align-items-center text-secondary">
             <div>Clique aqui para ver os itens encontrados</div>
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['loggedIn'])) {
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</h5>
           </div>
-          <div class="card-footer text-secondary d-flex justify-content-between align-items-center">
+          <div class="card-footer card-footer-background text-secondary d-flex justify-content-between align-items-center">
             <div>Clique aqui para ver os itens devolvidos</div>
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
@@ -97,7 +97,7 @@ if (!isset($_SESSION['loggedIn'])) {
           <div class="card-body">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</h5>
           </div>
-          <div class="card-footer text-secondary d-flex justify-content-between align-items-center">
+          <div class="card-footer card-footer-background text-secondary d-flex justify-content-between align-items-center">
             <div>Clique aqui para ver os itens mais perdidos</div>
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>

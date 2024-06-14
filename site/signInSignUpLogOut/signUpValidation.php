@@ -1,5 +1,6 @@
 <?php
-if (isset($_POST['username']) && !empty(trim($_POST['username'])) && isset($_POST['email']) && !empty(trim($_POST['email'])) && isset($_POST['password']) && !empty(trim($_POST['password']))) {
+if (isset($_POST['email'], $_POST['password'], $_POST['username']) && !empty(trim($_POST['email'], $_POST['password'])) && !empty(trim($_POST['username']))) {
+  // Too many arguments to function trim()
   require '../database/dbConfig.php';
   $username = $_POST['username'];
   $email = $_POST['email'];

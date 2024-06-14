@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['email']) && !empty(trim($_POST['email'])) && isset($_POST['password']) && !empty(trim($_POST['password']))) {
+if (isset($_POST['email'], $_POST['password']) && !empty(trim($_POST['email'], $_POST['password']))) {
   require '../database/dbConfig.php';
   $email = $_POST['email'];
   $password = $_POST['password'];
