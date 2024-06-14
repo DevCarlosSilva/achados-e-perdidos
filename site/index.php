@@ -61,11 +61,7 @@ if (!isset($_SESSION['loggedIn'])) {
       </ul>
     </div>
     <div class="offcanvas-footer h-100 d-flex align-items-center justify-content-end px-3 text-secondary">
-      <span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php if ($_SESSION['role'] == 0) {
-                                                                                    echo '<span class="d-flex">usuário <ion-icon name="person-circle-sharp" class="account-settings-icon"></ion-icon></span>';
-                                                                                  } else {
-                                                                                    echo '<span class="text-warning d-flex">admin <ion-icon name="construct-sharp" class="account-settings-icon"></ion-icon></span>';
-                                                                                  }; ?>
+      <span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php echo ($_SESSION['role'] == 0) ? '<span class="d-flex">usuário <ion-icon name="person-circle-sharp" class="account-settings-icon"></ion-icon></span>' : '<span class="text-warning d-flex">admin <ion-icon name="construct-sharp" class="account-settings-icon"></ion-icon></span>'; ?>
     </div>
   </div>
   <main class="container">
@@ -144,7 +140,17 @@ if (!isset($_SESSION['loggedIn'])) {
       </div>
     </div>
   </main>
+  <!-- footer -->
+  <footer class="container-fluid p-3 logo-gray-bg text-center">
+    <div class="text-secondary copyright">Direitos Autorais © 2024 Carlos Silva. Todos os Direitos Reservados</div>
+  </footer>
   <link rel="stylesheet" href="cruds/css/style.css">
-  <?php
-  require 'cruds/template/footer.php';
-  ?>
+  <!-- ionicons -->
+  <script defer type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script defer nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <!-- bootstrap -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+
+</html>

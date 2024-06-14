@@ -11,8 +11,10 @@ bootstrap dark - `#212529`
 
 1. Terminar cruds (seguir Figma)
    Visão de usuário dos cruds -> admin
+   . registrar e editar em ambos encontrados e devolvidos / modal pra mover e deletar
 2. (Condition) ? (Statement1) : (Statement2);
 3. if (isset(..., ...)) {}
+4. add "Add found item button to sidebar and card"
 
 . Mudar senha e username, deletar conta
 . Passar itens de devolvidos para encontrados

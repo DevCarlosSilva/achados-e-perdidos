@@ -54,10 +54,6 @@
       </ul>
     </div>
     <div class="offcanvas-footer h-100 d-flex align-items-center justify-content-end px-3 text-secondary">
-      <span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php if ($_SESSION['role'] == 0) {
-                                                                                    echo '<span class="d-flex">usuário <ion-icon name="person-circle-sharp" class="account-settings-icon"></ion-icon></span>';
-                                                                                  } else {
-                                                                                    echo '<span class="text-warning d-flex">admin <ion-icon name="construct-sharp" class="account-settings-icon"></ion-icon></span>';
-                                                                                  }; ?>
+      <span><?php echo $_SESSION['username']; ?></span><span class="mx-1">|</span><?php echo ($_SESSION['role'] == 0) ? '<span class="d-flex">usuário <ion-icon name="person-circle-sharp" class="account-settings-icon"></ion-icon></span>' : '<span class="text-warning d-flex">admin <ion-icon name="construct-sharp" class="account-settings-icon"></ion-icon></span>'; ?>
     </div>
   </div>

@@ -22,7 +22,7 @@ require 'template/header.php';
     $found_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($found_items_view) > 0) {
       if ($_SESSION['role'] == 1) {
-        echo '<button class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Cadastrar</button>';
+        echo '<a href="registerFoundItems.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>';
       }
     ?>
       <div class="table-responsive">
@@ -58,11 +58,19 @@ require 'template/header.php';
                   <ul class="dropdown-menu">
                     <li>
                       <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
-                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Sair da conta
+                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Editar
                       </a>
                     </li>
-                    <li><a class="dropdown-item" href="#">Action two</a></li>
-                    <li><a class="dropdown-item" href="#">Action three</a></li>
+                    <li>
+                      <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
+                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Mover
+                      </a>
+                    </li>
+                    <li>
+                      <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
+                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Excluir
+                      </a>
+                    </li>
                   </ul>
                 </div>
             <?php
