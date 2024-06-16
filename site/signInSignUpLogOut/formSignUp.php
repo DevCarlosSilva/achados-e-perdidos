@@ -21,19 +21,19 @@ if (isset($_GET['alert'])) {
 ?>
 <div class="w-100 m-auto form-container">
   <form action="signUpValidation.php" method="post" class="needs-validation" novalidate>
-    <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2">
+    <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2 unselectable" draggable="false">
     <span class="h3 fw-semi-bold">Registre-se,</span>
     <span class="h5 fw-semi-bold text-warning"> bem-vindo(a)!</span>
     <div class="form-floating mt-2">
-      <input name="username" id="username" class="form-control mb-1" placeholder="Insira seu nome de usuário" required>
+      <input name="username" id="username" class="form-control mb-1 unselectable" placeholder="Insira seu nome de usuário" required>
       <label for="username">Insira um nome de usuário</label>
     </div>
     <div class="form-floating">
-      <input type="email" name="email" id="email" class="form-control mb-1" placeholder="Insira seu e-mail" required>
+      <input type="email" name="email" id="email" class="form-control mb-1 unselectable" placeholder="Insira seu e-mail" required>
       <label for="email">Insira seu e-mail</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="password" id="password" class="form-control" placeholder="Insira sua senha" required>
+      <input type="password" name="password" id="password" class="form-control unselectable" placeholder="Insira sua senha" required>
       <label for="password">Insira uma senha</label>
     </div>
     <input type="submit" value="Registre-se" class="my-3 btn btn-warning w-100">

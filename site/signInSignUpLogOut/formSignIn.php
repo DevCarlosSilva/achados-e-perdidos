@@ -35,15 +35,15 @@ if (isset($_GET['alert'])) {
 ?>
 <div class="w-100 m-auto form-container">
   <form action="signInValidation.php" method="post" class="needs-validation" novalidate>
-    <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2">
+    <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2 unselectable" draggable="false">
     <span class="h3 fw-semi-bold">Entrar,</span>
     <span class="h5 fw-semi-bold text-warning"> olá denovo!</span>
     <div class="form-floating mt-2">
-      <input type="email" name="email" id="email" class="form-control mb-1" placeholder="Insira seu e-mail" required>
+      <input type="email" name="email" id="email" class="form-control mb-1 unselectable" placeholder="Insira seu e-mail" required>
       <label for="email">Insira seu e-mail</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="password" id="password" class="form-control" placeholder="Insira sua senha" required>
+      <input type="password" name="password" id="password" class="form-control unselectable" placeholder="Insira sua senha" required>
       <label for="password">Insira sua senha</label>
     </div>
     <input type="submit" value="Entrar" class="my-3 btn btn-warning w-100">

@@ -29,7 +29,7 @@ if (!isset($_SESSION['loggedIn'])) {
         <ion-icon name="menu-sharp" class="btn sidebar-toggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"></ion-icon>
       </div>
       <a href="index.php" class="logo-navbar">
-        <img src="assets/navbarLogo.png" alt="logo" draggable="false" class="img-fluid" />
+        <img src="assets/navbarLogo.png" alt="logo" draggable="false" class="img-fluid unselectable" />
       </a>
       <div class="dropdown-center">
         <button class="btn account-settings-button d-flex fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">

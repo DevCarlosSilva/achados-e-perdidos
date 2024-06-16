@@ -12,7 +12,7 @@ require 'template/header.php';
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
   <div class="page-title-divider w-100 my-1"></div>
-  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
+  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram achados e registrados no sistema de achados e perdidos.</span>
   <div class="container">
     <?php
     require '../database/dbConfig.php';
@@ -21,9 +21,7 @@ require 'template/header.php';
     $stmt->execute();
     $found_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($found_items_view) > 0) {
-      if ($_SESSION['role'] == 1) {
-        echo '<a href="registerFoundItem.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>';
-      }
+      echo ($_SESSION['role'] == 1) ? '<a href="registerFoundItem.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>' : null;
     ?>
       <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered">

@@ -8,6 +8,10 @@ body {
   /* color: text-secondary; */
 }
 
+.unselectable {
+  user-select: none;
+}
+
 /* sign in/up form */
 .form-container {
   max-width: 450px;
