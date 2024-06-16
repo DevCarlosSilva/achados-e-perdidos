@@ -31,7 +31,7 @@ require 'template/header.php';
             <tr class="text-center align-middle">
               <th>Nome</th>
               <th>Descrição</th>
-              <th class="date-td-minwidth">Data achado</th>
+              <th>Data achado</th>
               <th>Local achado</th>
               <th>Categoria</th>
               <?php
@@ -47,7 +47,7 @@ require 'template/header.php';
               echo '<tr class="text-center align-middle">';
               echo '<td>' . $item['name'] . '</td>';
               echo '<td class="text-start">' . $item['description'] . '</td>';
-              echo '<td>' . $item['date_of_find'] . '</td>';
+              echo '<td class="date-td-minwidth">' . $item['date_of_find'] . '</td>';
               echo '<td>' . $item['place_of_find'] . '</td>';
               echo '<td>' . $item['category'] . '</td>';
               if ($_SESSION['role'] == 1) {

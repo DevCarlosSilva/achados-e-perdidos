@@ -31,7 +31,7 @@ if (!isset($_SESSION['loggedIn'])) {
       <a href="index.php" class="logo-navbar">
         <img src="assets/navbarLogo.png" alt="logo" draggable="false" class="img-fluid" />
       </a>
-      <div class="dropstart">
+      <div class="dropdown-center">
         <button class="btn account-settings-button d-flex fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">
           <span><?php echo $_SESSION['username']; ?></span><ion-icon name="person-circle-outline" class="ms-1 account-settings-icon"></ion-icon>
         </button>
@@ -110,24 +110,26 @@ if (!isset($_SESSION['loggedIn'])) {
             $report = $stmt->fetchAll(PDO::FETCH_ASSOC);
             if (count($report) > 0) {
             ?>
-              <table class="table table-striped table-hover table-responsive table-bordered">
-                <thead>
-                  <tr>
-                    <th class="text-center w-50">Número de ocorrências</th>
-                    <th class="text-center w-50 align-middle">Categoria</th>
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                  <?php
-                  foreach ($report as $category) {
-                    echo '<tr>';
-                    echo '<td class="text-center text-md-end">' . $category['countIDcat'] . '</td>';
-                    echo '<td class="text-center text-md-start">' . $category['category'] . '</td>';
-                    echo '</tr>';
-                  }
-                  ?>
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                  <thead>
+                    <tr class="text-center align-middle">
+                      <th class="w-50">Categoria</th>
+                      <th class="w-50">Número de ocorrências</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-group-divider">
+                    <?php
+                    foreach ($report as $category) {
+                      echo '<tr>';
+                      echo '<td class="text-center text-md-end">' . $category['category'] . '</td>';
+                      echo '<td class="text-center text-md-start">' . $category['countIDcat'] . '</td>';
+                      echo '</tr>';
+                    }
+                    ?>
+                  </tbody>
+                </table>
+              </div>
             <?php
             } else {
               echo '<h4 class=" p-3 d-flex align-items-center justify-content-center">Não há itens cadastrados no momento.<ion-icon name="sad-outline" class="no-items-icon ms-2"></ion-icon></h4>';

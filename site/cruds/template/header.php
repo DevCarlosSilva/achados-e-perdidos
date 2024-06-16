@@ -24,7 +24,7 @@
       <a href="../index.php" class="logo-navbar">
         <img src="../assets/navbarLogo.png" alt="logo" draggable="false" class="img-fluid" />
       </a>
-      <div class="dropstart">
+      <div class="dropdown-center">
         <button class="btn account-settings-button d-flex fw-semibold" data-bs-toggle="dropdown" aria-expanded="false">
           <span><?php echo $_SESSION['username']; ?></span><ion-icon name="person-circle-outline" class="ms-1 account-settings-icon"></ion-icon>
         </button>
