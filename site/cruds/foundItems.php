@@ -6,14 +6,14 @@ if (!isset($_SESSION['loggedIn'])) {
 }
 require 'template/header.php';
 ?>
-<main class="container">
-  <div class="d-flex justify-content-between align-items-end container">
-    <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont"><ion-icon name="file-tray-full" class="me-2 page-identificator-icon"></ion-icon>ITENS ENCONTRADOS</h1>
+<main class="container my-3 my-sm-4">
+  <div class="d-flex justify-content-between align-items-end">
+    <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont m-0"><ion-icon name="file-tray-full" class="me-2 page-identificator-icon"></ion-icon>ITENS ENCONTRADOS</h1>
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
-  <div class="page-title-divider w-100 mb-2"></div>
+  <div class="page-title-divider w-100 my-1"></div>
+  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
   <div class="container">
-    <span class="text-secondary mb-4 d-block">Nesta página, você encontrará uma lista de todos os itens que foram encontrados e registrados no sistema de achados e perdidos.</span>
     <?php
     require '../database/dbConfig.php';
     $sql = 'SELECT * FROM found_items_view';
@@ -22,7 +22,7 @@ require 'template/header.php';
     $found_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($found_items_view) > 0) {
       if ($_SESSION['role'] == 1) {
-        echo '<a href="registerFoundItems.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>';
+        echo '<a href="registerFoundItem.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>';
       }
     ?>
       <div class="table-responsive">
@@ -31,7 +31,7 @@ require 'template/header.php';
             <tr class="text-center align-middle">
               <th>Nome</th>
               <th>Descrição</th>
-              <th>Data achado</th>
+              <th class="date-td-minwidth">Data achado</th>
               <th>Local achado</th>
               <th>Categoria</th>
               <?php

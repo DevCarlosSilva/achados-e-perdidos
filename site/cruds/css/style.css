@@ -1,15 +1,10 @@
-* {
-  margin: 0;
-  padding: 0;
+html,
+body {
+  min-height: 100%;
 }
 
 .IBMPlexMonoFont {
   font-family: 'IBM Plex Mono', monospace;
-}
-
-html,
-body {
-  height: 100%;
 }
 
 .copyright {
@@ -78,6 +73,9 @@ body {
   width: 25px;
 }
 /* cruds */
+main {
+  min-height: 90vh;
+}
 .page-identificator-icon {
   height: 42px;
   width: 42px;
@@ -85,9 +83,6 @@ body {
 .page-title-divider {
   height: 1px;
   background-color: #d9d9d9;
-}
-main {
-  min-height: 90vh;
 }
 .return-to-home,
 .card-table-arrow-icon {
@@ -140,10 +135,9 @@ main {
   width: 23px;
   height: 23px;
 }
-tr:hover {
-  background-color: black;
-  background-color: rgba(255, 255, 255, 0);
-}
 .card-footer-background {
   background-color: rgba(255, 255, 255, 0);
+}
+.date-td-minwidth {
+  min-width: 123px;
 }

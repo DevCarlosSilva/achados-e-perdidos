@@ -6,7 +6,7 @@ if (!isset($_SESSION['loggedIn'])) {
 }
 require 'template/header.php';
 ?>
-<main class="container">
+<main class="container my-3 my-sm-4">
   <div class="d-flex justify-content-between align-items-end container">
     <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont"><ion-icon name="file-tray" class="me-2 page-identificator-icon"></ion-icon>ITENS DEVOLVIDOS</h1>
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
@@ -39,7 +39,7 @@ require 'template/header.php';
             echo '<td>' . $item['name'] . '</td>';
             echo '<td>' . $item['description'] . '</td>';
             echo '<td>' . $item['receiver_name'] . '</td>';
-            echo '<td>' . $item['date_of_return'] . '</td>';
+            echo '<td class="date-td-minwidth">' . $item['date_of_return'] . '</td>';
             echo '<td>' . $item['category'] . '</td>';
             echo '</tr>';
           }
