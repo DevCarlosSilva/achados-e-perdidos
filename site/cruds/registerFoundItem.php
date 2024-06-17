@@ -18,7 +18,7 @@ if ($_SESSION['role'] == 0) {
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
               <ion-icon name="checkmark-circle-outline" class="alert-icons"></ion-icon>
-              <div class="mx-2">Item adicionado!</div>
+              <div class="mx-2">O item ' . $_GET['itemName'] . ' foi adicionado!</div>
               </div>
               <a href="registerFoundItem.php" class="btn-close"></a>
             </div>';

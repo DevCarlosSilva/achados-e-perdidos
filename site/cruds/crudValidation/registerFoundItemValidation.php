@@ -15,7 +15,7 @@ if (isset($_POST['name'], $_POST['description'], $_POST['dateOfFind'], $_POST['p
   $stmt->bindParam(':category_id', $category_id);
   $stmt->execute();
   session_start();
-  header('Location: ../registerFoundItem.php?alert=successfullyAddedItem');
+  header("Location: ../registerFoundItem.php?alert=successfullyAddedItem&itemName=$name");
 } else {
   header('Location: ../registerFoundItem.php?alert=invalidValues');
 }

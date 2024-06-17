@@ -51,19 +51,19 @@ require 'template/header.php';
                   <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
-                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Editar
-                      </a>
+                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
+                      </button>
                     </li>
                     <li>
-                      <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
-                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Mover
-                      </a>
+                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
+                      </button>
                     </li>
                     <li>
-                      <a class="btn d-flex align-items-center dropdown-item log-out-button" href="signInSignUpLogOut/logOut.php">
-                        <ion-icon name="log-out-outline" class="me-1 log-out-icon"></ion-icon>Excluir
-                      </a>
+                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <ion-icon name="trash-outline" class="me-1 action-icon"></ion-icon>Excluir
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -81,6 +81,24 @@ require 'template/header.php';
       echo '<div class="alert my-3 text-center align-self-center logo-gray-bg no-items-alert" role="alert"><h4 class="">Não há itens encontrados cadastrados no momento.<ion-icon name="sad-outline" class="no-items-icon ms-2"></ion-icon></h4></div>';
     }
     ?>
+  </div>
+  <!-- Delete modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
   </div>
 </main>
 <?php
