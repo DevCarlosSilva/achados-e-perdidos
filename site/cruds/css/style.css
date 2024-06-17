@@ -142,6 +142,9 @@ main {
 .card-footer-background {
   background-color: rgba(255, 255, 255, 0);
 }
+.description-td-maxwidth {
+  max-width: 466px;
+}
 .date-td-minwidth {
   min-width: 123px;
 }

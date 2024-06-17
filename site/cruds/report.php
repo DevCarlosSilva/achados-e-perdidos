@@ -12,7 +12,10 @@ require 'template/header.php';
   <div class="container" id="most-often-lost-table-container">
     <?php
     require '../database/dbConfig.php';
-    $sql = 'SELECT * FROM report';
+    $sql = 'SELECT count(c.id) AS countIDcat, c.name AS category
+            FROM found_items AS fi
+            JOIN categories AS c ON fi.category_id = c.id
+            GROUP BY c.id ORDER BY countIDcat DESC;';
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $report = $stmt->fetchAll(PDO::FETCH_ASSOC);

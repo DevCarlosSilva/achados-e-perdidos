@@ -12,11 +12,13 @@ require 'template/header.php';
   <div class="container">
     <?php
     require '../database/dbConfig.php';
-    $sql = 'SELECT * FROM found_items_view';
+    $sql = 'SELECT fi.name, fi.description, fi.date_of_find, fi.place_of_find, c.name AS category
+            FROM found_items AS fi
+            JOIN categories AS c ON fi.category_id = c.id;';
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $found_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    if (count($found_items_view) > 0) {
+    $found_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if (count($found_items) > 0) {
       echo ($_SESSION['role'] == 1) ? '<a href="registerFoundItem.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>' : null;
     ?>
       <div class="table-responsive">
@@ -37,10 +39,10 @@ require 'template/header.php';
           </thead>
           <tbody class="table-group-divider">
             <?php
-            foreach ($found_items_view as $item) {
+            foreach ($found_items as $item) {
               echo '<tr class="text-center align-middle">';
               echo '<td>' . $item['name'] . '</td>';
-              echo '<td class="text-start">' . $item['description'] . '</td>';
+              echo '<td class="text-start description-td-maxwidth">' . $item['description'] . '</td>';
               echo '<td class="date-td-minwidth">' . $item['date_of_find'] . '</td>';
               echo '<td>' . $item['place_of_find'] . '</td>';
               echo '<td>' . $item['category'] . '</td>';
