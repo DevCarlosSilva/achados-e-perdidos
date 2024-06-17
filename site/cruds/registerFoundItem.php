@@ -59,18 +59,21 @@ if ($_SESSION['role'] == 0) {
           </div>
         </div>
       </div>
-      <select name="category_id" class="form-select mb-3">
-        <?php
-        require '../database/dbConfig.php';
-        $sql = 'SELECT * FROM categories';
-        $stmt = $conn->prepare($sql);
-        $stmt->execute();
-        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($categories as $category) {
-          echo '<option value="' . $category['id'] . '">' . $category['name'] . '</option>';
-        }
-        ?>
-      </select>
+      <div>
+        <label for="category_id">Categoria:</label>
+        <select name="category_id" id="category_id" class="form-select mt-1 mb-3">
+          <?php
+          require '../database/dbConfig.php';
+          $sql = 'SELECT * FROM categories';
+          $stmt = $conn->prepare($sql);
+          $stmt->execute();
+          $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+          foreach ($categories as $category) {
+            echo '<option value="' . $category['id'] . '">' . $category['name'] . '</option>';
+          }
+          ?>
+        </select>
+      </div>
       <div class="row gap-1">
         <input type="submit" value="Adicionar item" class="btn btn-success  col-md">
         <a href="foundItems.php" class="btn btn-dark  col-md">Cancelar</a>
