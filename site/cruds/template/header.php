@@ -1,4 +1,10 @@
 <!-- header -->
+<?php
+session_start();
+if (!isset($_SESSION['loggedIn'])) {
+  header('Location: ../signInSignUpLogOut/formSignIn.php');
+}
+?>
 <!doctype html>
 <html lang="en">
 

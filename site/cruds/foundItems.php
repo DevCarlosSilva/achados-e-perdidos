@@ -1,9 +1,5 @@
 <!-- found items -->
 <?php
-session_start();
-if (!isset($_SESSION['loggedIn'])) {
-  header('Location: ../signInSignUpLogOut/formSignIn.php');
-}
 require 'template/header.php';
 ?>
 <main class="container my-3 my-sm-4">
@@ -28,7 +24,7 @@ require 'template/header.php';
           <thead>
             <tr class="text-center align-middle">
               <th>Nome</th>
-              <th>Descrição</th>
+              <th class="max-md-width">Descrição</th>
               <th>Data achado</th>
               <th>Local achado</th>
               <th>Categoria</th>

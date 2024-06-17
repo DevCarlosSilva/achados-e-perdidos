@@ -1,9 +1,5 @@
 <!-- report -->
 <?php
-session_start();
-if (!isset($_SESSION['loggedIn'])) {
-  header('Location: ../signInSignUpLogOut/formSignIn.php');
-}
 require 'template/header.php';
 ?>
 <main class="container my-3 my-sm-4">

@@ -151,3 +151,15 @@ main {
   flex-direction: column;
   justify-content: space-around;
 }
+.crud-form-container {
+  max-width: 800px;
+  padding: 2rem;
+  border: #dee2e6 solid 2px;
+  border-radius: 8px;
+}
+.alert-max-width {
+  max-width: 800px;
+}
+.max-md-width {
+  max-width: 500px;
+}
