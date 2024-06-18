@@ -34,13 +34,78 @@ require 'template/header.php';
           <tbody class="table-group-divider">
             <?php
             foreach ($returned_items_view as $item) {
-              echo '<tr>';
+              echo '<tr class="text-center align-middle">';
               echo '<td>' . $item['name'] . '</td>';
               echo '<td class="text-start description-td-maxwidth">' . $item['description'] . '</td>';
               echo '<td>' . $item['receiver_name'] . '</td>';
               echo '<td class="date-td-minwidth">' . $item['date_of_return'] . '</td>';
               echo '<td>' . $item['category'] . '</td>';
+              if ($_SESSION['role'] == 1) {
+                echo '<td>';
+            ?>
+                <div class="dropdown-center">
+                  <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="crudValidation/editReturnedItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
+                        <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
+                      </a>
+                    </li>
+                    <li>
+                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
+                        <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                        <ion-icon name="trash-outline" class="me-1 action-icon"></ion-icon>Excluir
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+            <?php
+                echo '</td>';
+              }              
               echo '</tr>';
+              echo '<!-- Delete action modal -->
+              <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Você realmente deseja excluir o item <span class="text-danger">"' . $item['name'] .
+                '"</span>? Essa ação não pode ser desfeita.</div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <form method="post" action="">
+                      
+                      </form>
+                      <button type="button" class="btn btn-primary">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>';
+              echo '<!-- Move action modal -->
+              <div class="modal fade" id="moveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Você realmente deseja escluir o item <span class="text-danger">"' . $item['name'] .
+                '"</span>? Essa ação não pode ser desfeita.</div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>';
             }
             ?>
           </tbody>

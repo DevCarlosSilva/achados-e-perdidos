@@ -53,7 +53,7 @@ require 'template/header.php';
                   <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="btn d-flex align-items-center justify-content-center dropdown-item">
+                      <a href="crudValidation/editFoundItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
                         <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
                       </a>
                     </li>
@@ -99,15 +99,15 @@ require 'template/header.php';
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
+                      <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">Aviso!</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      Você realmente deseja escluir o item <span class="text-danger">"' . $item['name'] .
-                '"</span>? Essa ação não pode ser desfeita.</div>
+                      Você realmente deseja mover o item <span class="text-warning">"' . $item['name'] .
+                '"</span>?</div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-primary">Mover</button>
                     </div>
                   </div>
                 </div>
