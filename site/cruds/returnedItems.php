@@ -9,10 +9,43 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 my-1"></div>
   <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram devolvidos aos seus devidos proprietários(as).</span>
+  <?php
+  if (isset($_GET['alert'])) {
+    switch ($_GET['alert']) {
+      case "itemDeleted":
+        echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+              <div class="d-flex align-items-center">      
+              <ion-icon name="checkmark-circle-outline" class="alert-icons"></ion-icon>
+              <div class="mx-2">O item ' . $_GET['itemName'] . ' foi excluído</div>
+              </div>
+              <a href="returnedItems.php" class="btn-close"></a>
+            </div>';
+        break;
+      case "deleteItem":
+        echo '<div class="alert alert-danger d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+                <div class="d-flex align-items-center">      
+                <ion-icon name="warning" class="alert-icons"></ion-icon>
+                <div class="mx-2">Você realmente deseja excluir o item ' . $_GET['itemName'] . '? Essa ação não pode ser desfeita.</div>
+                </div>
+                <form class="d-flex align-items-center" method="post" action="crudValidation\deleteReturnedItemValidation.php">
+                <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
+                <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
+                <button class="btn">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                </button>
+                </form>
+                <a href="returnedItems.php" class="btn">
+                <ion-icon name="close-outline"></ion-icon>
+                </a>
+              </div>';
+        break;
+    }
+  }
+  ?>
   <div class="container">
     <?php
     require '../database/dbConfig.php';
-    $sql = 'SELECT ri.name, ri.description, ri.receiver_name, ri.date_of_return, c.name AS category
+    $sql = 'SELECT ri.id, ri.name, ri.description, ri.receiver_name, ri.date_of_return, c.name AS category
             FROM returned_items AS ri
             JOIN categories AS c ON ri.category_id = c.id;';
     $stmt = $conn->prepare($sql);
@@ -47,70 +80,30 @@ require 'template/header.php';
               echo '<td class="date-td-minwidth">' . $item['date_of_return'] . '</td>';
               echo '<td>' . $item['category'] . '</td>';
               if ($_SESSION['role'] == 1) {
-                echo '<td>';
-            ?>
-                <div class="dropdown-center">
-                  <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a href="crudValidation/editReturnedItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
-                        <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
-                      </a>
-                    </li>
-                    <li>
-                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
-                        <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
-                      </button>
-                    </li>
-                    <li>
-                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                        <ion-icon name="trash-outline" class="me-1 action-icon"></ion-icon>Excluir
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-            <?php
-                echo '</td>';
+                echo '<td>
+                  <div class="dropdown-center">
+                    <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="crudValidation/editReturnedItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
+                          <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
+                        </a>
+                      </li>
+                      <li>
+                        <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
+                          <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
+                        </button>
+                      </li>
+                      <li>
+                        <form method="post" action="returnedItems?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
+                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
+                        </form>
+                      </li>
+                    </ul>
+                  </div>
+                </td>';
               }
               echo '</tr>';
-              echo '<!-- Delete action modal -->
-              <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Você realmente deseja excluir o item <span class="text-danger">"' . $item['name'] .
-                '"</span>? Essa ação não pode ser desfeita.</div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <form method="post" action="crudValidation\deleteReturnedItemValidation.php">
-                      <button type="button" class="btn btn-danger">Excluir</button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>';
-              echo '<!-- Move action modal -->
-              <div class="modal fade" id="moveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">Aviso!</h1>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      Você realmente deseja mover o item <span class="text-warning">"' . $item['name'] .
-                '"</span>?</div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <button type="button" class="btn btn-warning">Mover</button>
-                    </div>
-                  </div>
-                </div>
-              </div>';
             }
             ?>
           </tbody>

@@ -21,6 +21,24 @@ require 'template/header.php';
               <a href="foundItems.php" class="btn-close"></a>
             </div>';
         break;
+      case "deleteItem":
+        echo '<div class="alert alert-danger d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+                <div class="d-flex align-items-center">      
+                <ion-icon name="warning" class="alert-icons"></ion-icon>
+                <div class="mx-2">Você realmente deseja excluir o item ' . $_GET['itemName'] . '? Essa ação não pode ser desfeita.</div>
+                </div>
+                <form class="d-flex align-items-center" method="post" action="crudValidation\deleteFoundItemValidation.php">
+                <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
+                <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
+                <button class="btn">
+                  <ion-icon name="checkmark-outline"></ion-icon>
+                </button>
+                </form>
+                <a href="foundItems.php" class="btn">
+                <ion-icon name="close-outline"></ion-icon>
+                </a>
+              </div>';
+        break;
     }
   }
   ?>
@@ -77,9 +95,7 @@ require 'template/header.php';
                         </button>
                       </li>
                       <li>
-                        <form method="post" action="crudValidation\deleteFoundItemValidation.php">
-                          <input type="hidden" name="id" value="' . $item['id'] . '">
-                          <input type="hidden" name="name" value="' . $item['name'] . '">
+                        <form method="post" action="foundItems?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
                           <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
                         </form>
                       </li>
