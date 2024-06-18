@@ -53,12 +53,12 @@ require 'template/header.php';
                   <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                   <ul class="dropdown-menu">
                     <li>
-                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                      <a class="btn d-flex align-items-center justify-content-center dropdown-item">
                         <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
-                      </button>
+                      </a>
                     </li>
                     <li>
-                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                      <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
                         <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
                       </button>
                     </li>
@@ -73,8 +73,29 @@ require 'template/header.php';
                 echo '</td>';
               }
               echo '</tr>';
-              echo '<!-- Delete modal -->
+              echo '<!-- Delete action modal -->
               <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Você realmente deseja excluir o item <span class="text-danger">"' . $item['name'] .
+                '"</span>? Essa ação não pode ser desfeita.</div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <form method="post" action="">
+                      
+                      </form>
+                      <button type="button" class="btn btn-primary">Excluir</button>
+                    </div>
+                  </div>
+                </div>
+              </div>';
+              echo '<!-- Move action modal -->
+              <div class="modal fade" id="moveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
