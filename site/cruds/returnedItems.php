@@ -19,6 +19,7 @@ require 'template/header.php';
     $stmt->execute();
     $returned_items_view = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($returned_items_view) > 0) {
+      echo ($_SESSION['role'] == 1) ? '<a href="registerReturnedItem.php" class="fw-semibold add-item-button d-flex align-items-center"><ion-icon name="add-circle-outline" class="me-1 add-item-icon"></ion-icon>Registrar</a>' : null;
     ?>
       <div class="table-responsive">
         <table class="table table-striped table-hover table-bordered">
@@ -26,9 +27,14 @@ require 'template/header.php';
             <tr class="text-center align-middle">
               <th>Nome</th>
               <th>Descrição</th>
-              <th>Data achado</th>
-              <th>Local achado</th>
+              <th>Nome do receptor</th>
+              <th>Data da devolução</th>
               <th>Categoria</th>
+              <?php
+              if ($_SESSION['role'] == 1) {
+                echo '<th>Ações</th>';
+              }
+              ?>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -65,7 +71,7 @@ require 'template/header.php';
                 </div>
             <?php
                 echo '</td>';
-              }              
+              }
               echo '</tr>';
               echo '<!-- Delete action modal -->
               <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -80,10 +86,9 @@ require 'template/header.php';
                 '"</span>? Essa ação não pode ser desfeita.</div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <form method="post" action="">
-                      
+                      <form method="post" action="crudValidation\deleteReturnedItemValidation.php">
+                      <button type="button" class="btn btn-danger">Excluir</button>
                       </form>
-                      <button type="button" class="btn btn-primary">Excluir</button>
                     </div>
                   </div>
                 </div>
@@ -93,15 +98,15 @@ require 'template/header.php';
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
+                      <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">Aviso!</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      Você realmente deseja escluir o item <span class="text-danger">"' . $item['name'] .
-                '"</span>? Essa ação não pode ser desfeita.</div>
+                      Você realmente deseja mover o item <span class="text-warning">"' . $item['name'] .
+                '"</span>?</div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <button type="button" class="btn btn-warning">Mover</button>
                     </div>
                   </div>
                 </div>
