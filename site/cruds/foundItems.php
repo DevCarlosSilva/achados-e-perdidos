@@ -9,10 +9,25 @@ require 'template/header.php';
   </div>
   <div class="page-title-divider w-100 my-1"></div>
   <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram achados e registrados no sistema de achados e perdidos.</span>
+  <?php
+  if (isset($_GET['alert'])) {
+    switch ($_GET['alert']) {
+      case "itemDeleted":
+        echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+              <div class="d-flex align-items-center">      
+              <ion-icon name="checkmark-circle-outline" class="alert-icons"></ion-icon>
+              <div class="mx-2">O item ' . $_GET['itemName'] . ' foi excluído</div>
+              </div>
+              <a href="foundItems.php" class="btn-close"></a>
+            </div>';
+        break;
+    }
+  }
+  ?>
   <div class="container">
     <?php
     require '../database/dbConfig.php';
-    $sql = 'SELECT fi.name, fi.description, fi.date_of_find, fi.place_of_find, c.name AS category
+    $sql = 'SELECT fi.id, fi.name, fi.description, fi.date_of_find, fi.place_of_find, c.name AS category
             FROM found_items AS fi
             JOIN categories AS c ON fi.category_id = c.id;';
     $stmt = $conn->prepare($sql);
@@ -62,52 +77,15 @@ require 'template/header.php';
                         </button>
                       </li>
                       <li>
-                        <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal">
-                          <ion-icon name="trash-outline" class="me-1 action-icon"></ion-icon>Excluir
-                        </button>
+                        <form method="post" action="crudValidation\deleteFoundItemValidation.php">
+                          <input type="hidden" name="id" value="' . $item['id'] . '">
+                          <input type="hidden" name="name" value="' . $item['name'] . '">
+                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
+                        </form>
                       </li>
                     </ul>
                   </div>
                 </td>';
-                // Delete action modal
-                echo '<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5 text-danger" id="exampleModalLabel">Aviso!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Você realmente deseja excluir o item <span class="text-danger">"' . $item['name'] .
-                  '"</span>? Essa ação não pode ser desfeita.</div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <form method="post" action="crudValidation\deleteFoundItemValidation.php">
-                          <input name="id" type="hidden" value="">
-                          <input type="submit" value="Excluir" class="btn btn-danger">
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </div>';
-                // Move action modal
-                echo '<div class="modal fade" id="moveModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5 text-warning" id="exampleModalLabel">Aviso!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Você realmente deseja mover o item <span class="text-warning">"' . $item['name'] .
-                  '"</span>?</div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-warning">Mover</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>';
               }
               echo '</tr>';
             }
