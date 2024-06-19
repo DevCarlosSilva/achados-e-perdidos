@@ -10,7 +10,7 @@ if ($_SESSION['role'] == 0) {
     <a href="foundItems.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
   <div class="page-title-divider w-100 my-1"></div>
-  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você pode adicionar itens a lista de itens perdidos.</span>
+  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você pode adicionar itens a lista de itens encontrados.</span>
   <?php
   if (isset($_GET['alert'])) {
     switch ($_GET['alert']) {
@@ -18,7 +18,7 @@ if ($_SESSION['role'] == 0) {
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
               <ion-icon name="checkmark-circle-outline" class="alert-icons"></ion-icon>
-              <div class="mx-2">O item ' . $_GET['itemName'] . ' foi adicionado!</div>
+              <div class="mx-2">O item ' . $_GET['name'] . ' foi adicionado!</div>
               </div>
               <a href="registerFoundItem.php" class="btn-close"></a>
             </div>';

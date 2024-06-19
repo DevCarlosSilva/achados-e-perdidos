@@ -38,7 +38,7 @@ if ($_SESSION['role'] == 0) {
         <div class="col-md">
           <div class="form-floating">
             <input type="datetime-local" name="dateOfReturn" id="dateOfReturn" class="form-control" placeholder="Data de devolução" value="' . $_GET['dateOfReturn'] . '" required>
-            <label for="dateOfReturn">Data do achado</label>
+            <label for="dateOfReturn">Data de devolução</label>
           </div>
         </div>
         <div class="col-md">

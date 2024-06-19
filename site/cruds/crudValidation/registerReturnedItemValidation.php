@@ -17,7 +17,7 @@ if (
   $stmt->bindParam(':date_of_return', $date_of_return);
   $stmt->bindParam(':category_id', $category_id);
   $stmt->execute();
-  header("Location: ../registerReturnedItem.php?alert=successfullyAddedItem&itemName=" . $name);
+  header("Location: ../registerReturnedItem.php?alert=successfullyAddedItem&name=" . $name);
 } else {
   header('Location: ../registerReturnedItem.php?alert=invalidValues');
 }

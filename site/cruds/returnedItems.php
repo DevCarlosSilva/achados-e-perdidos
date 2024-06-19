@@ -16,7 +16,7 @@ require 'template/header.php';
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
               <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
-              <div class="mx-2">O item "' . $_GET['itemName'] . '" foi editado</div>
+              <div class="mx-2">O item "' . $_GET['name'] . '" foi editado</div>
               </div>
               <a href="returnedItems.php" class="btn-close"></a>
             </div>';
@@ -25,7 +25,7 @@ require 'template/header.php';
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
               <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
-              <div class="mx-2">O item "' . $_GET['itemName'] . '" foi excluído</div>
+              <div class="mx-2">O item "' . $_GET['name'] . '" foi excluído</div>
               </div>
               <a href="returnedItems.php" class="btn-close"></a>
             </div>';
@@ -34,11 +34,11 @@ require 'template/header.php';
         echo '<div class="alert alert-danger d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
                 <div class="d-flex align-items-center">      
                   <ion-icon name="warning" class="alert-icons"></ion-icon>
-                  <div class="mx-2">Você realmente deseja excluir o item "' . $_GET['itemName'] . '"? Essa ação não pode ser desfeita.</div>
+                  <div class="mx-2">Você realmente deseja excluir o item "' . $_GET['name'] . '"? Essa ação não pode ser desfeita.</div>
                 </div>
                 <form class="d-flex align-items-center" method="post" action="crudValidation\deleteReturnedItemValidation.php">
                   <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
-                  <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
+                  <input type="hidden" name="name" value="' . $_GET['name'] . '">
                   <button class="btn d-flex align-items-center"><ion-icon name="checkmark" class="movedelete-item-confirmation"></ion-icon></button>
                   <a href="returnedItems.php" class="btn d-flex align-items-center"><ion-icon name="close" class="movedelete-item-confirmation"></ion-icon></a>
                 </form>
@@ -98,7 +98,7 @@ require 'template/header.php';
                         
                       </li>
                       <li>
-                        <form method="post" action="returnedItems.php?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
+                        <form method="post" action="returnedItems.php?alert=deleteItem&itemId=' . $item['id'] . '&name=' . $item['name'] . '">
                           <button class="btn btn-danger d-flex align-items-center justify-content-center fw-semibold dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
                         </form>
                       </li>

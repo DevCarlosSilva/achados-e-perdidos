@@ -4,7 +4,7 @@ require 'template/header.php';
 ?>
 <main class="container my-3 my-sm-4">
   <div class="d-flex justify-content-between align-items-end">
-    <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont m-0"><ion-icon name="file-tray-full" class="me-2 page-identificator-icon"></ion-icon>ITENS MAIS PERDIDOS</h1>
+    <h1 class="text-warning d-flex align-items-center IBMPlexMonoFont m-0"><ion-icon name="trending-up-sharp" class="me-2 page-identificator-icon"></ion-icon>ITENS MAIS PERDIDOS</h1>
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
   <div class="page-title-divider w-100 my-1"></div>

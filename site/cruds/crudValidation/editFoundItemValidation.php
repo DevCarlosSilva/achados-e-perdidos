@@ -16,7 +16,7 @@ if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['description'])
   $stmt->bindValue(':category_id', $category_id);
   $stmt->bindValue(':id', $id);
   $stmt->execute();
-  header('Location: ../foundItems.php?alert=itemEdited&itemName=' . $name);
+  header('Location: ../foundItems.php?alert=itemEdited&name=' . $name);
 } else {
   header('Location: ../editFoundItem.php?alert=invalidValues&id=' . $_POST['id'] . '&name=' . $_POST['name'] . '&description=' . $_POST['description'] . '&dateOfFind=' . $_POST['dateOfFind'] . '&placeOfFind=' . $_POST['placeOfFind'] . '&id_category=' . $_POST['category_id'] . '');
 }

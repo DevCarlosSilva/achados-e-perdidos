@@ -7,7 +7,7 @@ if (isset($_POST['id']) && isset($_POST['name']) && !empty(trim($_POST['id'])) &
   $stmt = $conn->prepare($sql);
   $stmt->bindValue(':id', $id);
   $stmt->execute();
-  header('Location: ../returnedItems.php?alert=itemDeleted&itemName=' . $name);
+  header('Location: ../returnedItems.php?alert=itemDeleted&name=' . $name);
 } else {
   header('Location: ../returned.php');
 }
