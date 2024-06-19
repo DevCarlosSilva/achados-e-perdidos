@@ -75,8 +75,8 @@ if ($_SESSION['role'] == 0) {
         </select>
       </div>
       <div class="row gap-1">
-        <input type="submit" value="Adicionar item" class="btn btn-success  col-md">
-        <a href="foundItems.php" class="btn btn-dark  col-md">Cancelar</a>
+        <input type="submit" value="Adicionar item" class="btn btn-success col-md">
+        <a href="foundItems.php" class="btn btn-dark col-md">Cancelar</a>
       </div>
     </form>
   </div>

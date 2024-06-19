@@ -15,8 +15,8 @@ require 'template/header.php';
       case "itemDeleted":
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
-              <ion-icon name="checkmark-circle-outline" class="alert-icons"></ion-icon>
-              <div class="mx-2">O item ' . $_GET['itemName'] . ' foi excluído</div>
+              <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
+              <div class="mx-2">O item "' . $_GET['itemName'] . '" foi excluído</div>
               </div>
               <a href="returnedItems.php" class="btn-close"></a>
             </div>';
@@ -24,19 +24,15 @@ require 'template/header.php';
       case "deleteItem":
         echo '<div class="alert alert-danger d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
                 <div class="d-flex align-items-center">      
-                <ion-icon name="warning" class="alert-icons"></ion-icon>
-                <div class="mx-2">Você realmente deseja excluir o item ' . $_GET['itemName'] . '? Essa ação não pode ser desfeita.</div>
+                  <ion-icon name="warning" class="alert-icons"></ion-icon>
+                  <div class="mx-2">Você realmente deseja excluir o item "' . $_GET['itemName'] . '"? Essa ação não pode ser desfeita.</div>
                 </div>
                 <form class="d-flex align-items-center" method="post" action="crudValidation\deleteReturnedItemValidation.php">
-                <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
-                <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
-                <button class="btn">
-                  <ion-icon name="checkmark-outline"></ion-icon>
-                </button>
+                  <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
+                  <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
+                  <button class="btn d-flex align-items-center"><ion-icon name="checkmark" class="movedelete-item-confirmation"></ion-icon></button>
+                  <a href="returnedItems.php" class="btn d-flex align-items-center"><ion-icon name="close" class="movedelete-item-confirmation"></ion-icon></a>
                 </form>
-                <a href="returnedItems.php" class="btn">
-                <ion-icon name="close-outline"></ion-icon>
-                </a>
               </div>';
         break;
     }
@@ -86,16 +82,16 @@ require 'template/header.php';
                     <ul class="dropdown-menu">
                       <li>
                         <a href="crudValidation/editReturnedItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
-                          <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
+                          <ion-icon name="brush" class="me-1 action-icon"></ion-icon>Editar
                         </a>
                       </li>
                       <li>
                         <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
-                          <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
+                          <ion-icon name="checkbox" class="me-1 action-icon"></ion-icon>Mover
                         </button>
                       </li>
                       <li>
-                        <form method="post" action="returnedItems?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
+                        <form method="post" action="returnedItems.php?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
                           <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
                         </form>
                       </li>

@@ -1,6 +1,8 @@
 <?php
-if (isset($_POST['name']) && isset($_POST['description']) && isset($_POST['dateOfReturn']) && isset($_POST['receiverName']) && isset($_POST['category_id']) && 
-    !empty(trim($_POST['name'])) && !empty(trim($_POST['description'])) && !empty(trim($_POST['dateOfReturn'])) && !empty(trim($_POST['receiverName'])) && !empty(trim($_POST['category_id']))) {
+if (
+  isset($_POST['name']) && isset($_POST['description']) && isset($_POST['dateOfReturn']) && isset($_POST['receiverName']) && isset($_POST['category_id']) &&
+  !empty(trim($_POST['name'])) && !empty(trim($_POST['description'])) && !empty(trim($_POST['dateOfReturn'])) && !empty(trim($_POST['receiverName'])) && !empty(trim($_POST['category_id']))
+) {
   require '../../database/dbConfig.php';
   $name = $_POST['name'];
   $description = $_POST['description'];

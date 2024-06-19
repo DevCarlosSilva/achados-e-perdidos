@@ -8,35 +8,68 @@ require 'template/header.php';
     <a href="../index.php" class="d-flex align-items-center return-to-home fw-semibold mb-1">Voltar<ion-icon name="arrow-undo" class="ms-1"></ion-icon></a>
   </div>
   <div class="page-title-divider w-100 my-1"></div>
-  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram achados e registrados no sistema de achados e perdidos.</span>
+  <span class="text-secondary mb-4 d-block text-center text-sm-start">Nesta página, você encontrará uma lista de todos os itens que foram achados e registrados no sistema.</span>
   <?php
   if (isset($_GET['alert'])) {
     switch ($_GET['alert']) {
-      case "itemDeleted":
+      case "itemEdited":
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
-              <ion-icon name="checkmark-circle-outline" class="alert-icons"></ion-icon>
-              <div class="mx-2">O item ' . $_GET['itemName'] . ' foi excluído</div>
+                <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
+                <div class="mx-2">O item "' . $_GET['itemName'] . '" foi editado</div>
               </div>
               <a href="foundItems.php" class="btn-close"></a>
             </div>';
         break;
+      case "itemMoved":
+        echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+              <div class="d-flex align-items-center">      
+                <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
+                <div class="mx-2">O item "' . $_GET['itemName'] . '" foi classificado como devolvido</div>
+              </div>
+              <a href="foundItems.php" class="btn-close"></a>
+            </div>';
+        break;
+      case "itemDeleted":
+        echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+              <div class="d-flex align-items-center">      
+                <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
+                <div class="mx-2">O item "' . $_GET['itemName'] . '" foi excluído</div>
+              </div>
+              <a href="foundItems.php" class="btn-close"></a>
+            </div>';
+        break;
+      case "moveItem":
+        echo '<div class="alert alert-warning d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+                  <div class="d-flex align-items-center">      
+                    <ion-icon name="warning" class="alert-icons"></ion-icon>
+                    <div class="mx-2">Você realmente deseja classificar o item "' . $_GET['itemName'] . '" como devolvido?</div>
+                  </div>
+                  <form class="d-flex align-items-center" method="post" action="crudValidation\deleteFoundItemValidation.php">
+                    <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
+                    <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
+                    <button class="btn d-flex align-items-center">
+                      <ion-icon name="checkmark" class="movedelete-item-confirmation"></ion-icon>
+                    </button>
+                    <a href="foundItems.php" class="btn d-flex align-items-center"><ion-icon name="close" class="movedelete-item-confirmation"></ion-icon></a>
+                  </form>
+                </div>';
+        break;
       case "deleteItem":
         echo '<div class="alert alert-danger d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
                 <div class="d-flex align-items-center">      
-                <ion-icon name="warning" class="alert-icons"></ion-icon>
-                <div class="mx-2">Você realmente deseja excluir o item ' . $_GET['itemName'] . '? Essa ação não pode ser desfeita.</div>
+                  <ion-icon name="warning" class="alert-icons"></ion-icon>
+                  <div class="mx-2">Você realmente deseja excluir o item "' . $_GET['itemName'] . '"? Essa ação não pode ser desfeita.
+                  </div>
                 </div>
                 <form class="d-flex align-items-center" method="post" action="crudValidation\deleteFoundItemValidation.php">
-                <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
-                <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
-                <button class="btn">
-                  <ion-icon name="checkmark-outline"></ion-icon>
-                </button>
+                  <input type="hidden" name="id" value="' . $_GET['itemId'] . '">
+                  <input type="hidden" name="name" value="' . $_GET['itemName'] . '">
+                  <button class="btn d-flex align-items-center">
+                    <ion-icon name="checkmark" class="movedelete-item-confirmation"></ion-icon>
+                  </button>
                 </form>
-                <a href="foundItems.php" class="btn">
-                <ion-icon name="close-outline"></ion-icon>
-                </a>
+                <a href="foundItems.php" class="btn d-flex align-items-center"><ion-icon name="close" class="movedelete-item-confirmation"></ion-icon></a>
               </div>';
         break;
     }
@@ -85,18 +118,18 @@ require 'template/header.php';
                     <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="crudValidation/editFoundItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
-                          <ion-icon name="brush-outline" class="me-1 action-icon"></ion-icon>Editar
+                        <a href="editFoundItem.php?id=' . $item['id'] . '&name=' . $item['name'] . '&description=' . $item['description'] . '&dateOfFind=' . $item['date_of_find'] . '&placeOfFind=' . $item['place_of_find'] . '&id_category=' . $item['category'] . '" class="btn d-flex align-items-center justify-content-center dropdown-item fw-semibold">
+                          <ion-icon name="brush" class="me-1 action-icon"></ion-icon>Editar
                         </a>
                       </li>
                       <li>
-                        <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
-                          <ion-icon name="checkbox-outline" class="me-1 action-icon"></ion-icon>Mover
-                        </button>
+                        <form method="post" action="foundItems.php?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
+                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item fw-semibold"><ion-icon name="checkbox" class="me-1 action-icon"></ion-icon>Mover</button>
+                        </form>
                       </li>
                       <li>
-                        <form method="post" action="foundItems?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
-                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
+                        <form method="post" action="foundItems.php?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
+                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item fw-semibold"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
                         </form>
                       </li>
                     </ul>
