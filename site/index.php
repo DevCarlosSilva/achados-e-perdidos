@@ -69,7 +69,7 @@ if (!isset($_SESSION['loggedIn'])) {
     <span class="text-secondary mb-4 d-block text-center text-sm-start">Seu ponto de partida.</span>
     <div class="container">
       <div class="row gap-3">
-        <a href="cruds/foundItems.php" class="card page-card  col-md logo-gray-bg">
+        <a href="cruds/foundItems.php" class="card page-card col-md logo-gray-bg">
           <div class="card-body h-50">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray-full" class="me-2 sidebar-page-icon"></ion-icon>Itens encontrados</h5>
           </div>
@@ -78,7 +78,7 @@ if (!isset($_SESSION['loggedIn'])) {
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
         </a>
-        <a href="cruds/returnedItems.php" class="card page-card logo-gray-bg  col-md">
+        <a href="cruds/returnedItems.php" class="card page-card logo-gray-bg col-md">
           <div class="card-body h-50">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="file-tray" class="me-2 sidebar-page-icon"></ion-icon>Itens devolvidos</h5>
           </div>
@@ -87,7 +87,7 @@ if (!isset($_SESSION['loggedIn'])) {
             <ion-icon name="arrow-redo" class="ms-1"></ion-icon>
           </div>
         </a>
-        <a href="cruds/report.php" class="card page-card logo-gray-bg  col-md">
+        <a href="cruds/report.php" class="card page-card logo-gray-bg col-md">
           <div class="card-body h-50">
             <h5 class="card-title d-flex align-items-center"><ion-icon name="trending-up-sharp" class="me-2 sidebar-page-icon"></ion-icon>Itens mais perdidos</h5>
           </div>

@@ -145,6 +145,7 @@ main {
 }
 .description-td-maxwidth {
   max-width: 466px;
+  word-wrap: break-word;
 }
 .date-td-minwidth {
   min-width: 123px;
