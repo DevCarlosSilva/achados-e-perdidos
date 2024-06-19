@@ -118,13 +118,13 @@ require 'template/header.php';
                     <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="editFoundItem.php?id=' . $item['id'] . '&name=' . $item['name'] . '&description=' . $item['description'] . '&dateOfFind=' . $item['date_of_find'] . '&placeOfFind=' . $item['place_of_find'] . '&id_category=' . $item['category'] . '" class="btn d-flex align-items-center justify-content-center dropdown-item fw-semibold">
+                        <a href="editFoundItem.php?id=' . $item['id'] . '&name=' . $item['name'] . '&description=' . $item['description'] . '&dateOfFind=' . $item['date_of_find'] . '&placeOfFind=' . $item['place_of_find'] . '&id_category=' . $item['category'] . '" class="btn btn-warning d-flex align-items-center justify-content-center dropdown-item fw-semibold">
                           <ion-icon name="brush" class="me-1 action-icon"></ion-icon>Editar
                         </a>
                       </li>
                       <li>
                         <form method="post" action="foundItems.php?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
-                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item fw-semibold"><ion-icon name="checkbox" class="me-1 action-icon"></ion-icon>Mover</button>
+                          <button class="btn btn-warning d-flex align-items-center justify-content-center dropdown-item fw-semibold"><ion-icon name="checkbox" class="me-1 action-icon"></ion-icon>Mover</button>
                         </form>
                       </li>
                       <li>

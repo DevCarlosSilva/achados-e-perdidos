@@ -12,6 +12,15 @@ require 'template/header.php';
   <?php
   if (isset($_GET['alert'])) {
     switch ($_GET['alert']) {
+      case "itemEdited":
+        echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
+              <div class="d-flex align-items-center">      
+              <ion-icon name="checkmark-circle" class="alert-icons"></ion-icon>
+              <div class="mx-2">O item "' . $_GET['itemName'] . '" foi editado</div>
+              </div>
+              <a href="returnedItems.php" class="btn-close"></a>
+            </div>';
+        break;
       case "itemDeleted":
         echo '<div class="alert alert-success d-flex align-items-center justify-content-between fw-semibold alert-max-width mx-auto" role="alert">
               <div class="d-flex align-items-center">      
@@ -81,18 +90,16 @@ require 'template/header.php';
                     <ion-icon name="ellipsis-horizontal" class="dropdown-toggle text-center align-middle p-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"></ion-icon>
                     <ul class="dropdown-menu">
                       <li>
-                        <a href="crudValidation/editReturnedItem.php" class="btn d-flex align-items-center justify-content-center dropdown-item">
+                        <a href="editReturnedItem.php?id=' . $item['id'] . '&name=' . $item['name'] . '&description=' . $item['description'] . '&receiverName=' . $item['receiver_name'] . '&dateOfReturn=' . $item['date_of_return'] . '&id_category=' . $item['category'] . '" class="btn btn-warning d-flex align-items-center justify-content-center dropdown-item fw-semibold">
                           <ion-icon name="brush" class="me-1 action-icon"></ion-icon>Editar
                         </a>
                       </li>
                       <li>
-                        <button type="button" class="btn d-flex align-items-center justify-content-center dropdown-item" data-bs-toggle="modal" data-bs-target="#moveModal">
-                          <ion-icon name="checkbox" class="me-1 action-icon"></ion-icon>Mover
-                        </button>
+                        
                       </li>
                       <li>
                         <form method="post" action="returnedItems.php?alert=deleteItem&itemId=' . $item['id'] . '&itemName=' . $item['name'] . '">
-                          <button class="btn btn-danger d-flex align-items-center justify-content-center dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
+                          <button class="btn btn-danger d-flex align-items-center justify-content-center fw-semibold dropdown-item"><ion-icon name="trash" class="me-1 action-icon"></ion-icon>Excluir</button>
                         </form>
                       </li>
                     </ul>

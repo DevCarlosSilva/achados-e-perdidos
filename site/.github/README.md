@@ -9,11 +9,7 @@ logo color - `#e6eded`
 yellow highlight / main color - `#ffc107`
 bootstrap dark - `#212529`
 
-1. Terminar cruds (seguir Figma)
-   Visão de usuário dos cruds -> admin
-2. (Condition) ? (Statement1) : (Statement2);
-3. if (isset(..., ...)) {}
-4. add "Add found item button to sidebar and card"
+1. <span class="text-danger">*</span>
 
 . Mudar senha e username, deletar conta
 . Passar itens de devolvidos para encontrados
