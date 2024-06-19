@@ -33,9 +33,9 @@ if (isset($_GET['alert'])) {
   }
 }
 ?>
-<div class="w-100 m-auto form-container">
+<div class="w-100 m-auto form-container p-2 p-sm-4">
   <form action="signInValidation.php" method="post" class="needs-validation" novalidate>
-    <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2 unselectable" draggable="false">
+    <img src="../assets/trimmedLogo.png" alt="logo" class="w-100 m-auto form-logo d-block mb-2 unselectable img-fluid" draggable="false">
     <span class="h3 fw-semi-bold">Entrar,</span>
     <span class="h5 fw-semi-bold text-warning"> olá denovo!</span>
     <div class="form-floating mt-2">

@@ -15,7 +15,6 @@ body {
 /* sign in/up form */
 .form-container {
   max-width: 450px;
-  padding: 2rem;
   border: #c8c8c8 solid 3px;
   border-radius: 8px;
   background-color: #e6eded;
