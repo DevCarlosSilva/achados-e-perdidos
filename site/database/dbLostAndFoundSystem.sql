@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `lost_and_found`.`returned_items` (
   `date_of_return` DATETIME NOT NULL,
   `category_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-    FOREIGN KEY (`category_id`) REFERENCES `lost_and_found`.`category` (`id`));
+    FOREIGN KEY (`category_id`) REFERENCES `lost_and_found`.`categories` (`id`));
 
 CREATE TABLE IF NOT EXISTS `lost_and_found`.`found_items` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `lost_and_found`.`found_items` (
   `place_of_find` VARCHAR(45) NOT NULL,
   `category_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-    FOREIGN KEY (`category_id`) REFERENCES `lost_and_found`.`category` (`id`));
+    FOREIGN KEY (`category_id`) REFERENCES `lost_and_found`.`categories` (`id`));
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
